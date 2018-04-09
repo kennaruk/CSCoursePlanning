@@ -38,7 +38,7 @@
     {
         "courseId": "CS231",
         "courseName": "Programming Languages & Paradigms",
-        "prerequisite": [],
+        "prerequisite": ["CS111 OR CS112"],
         "credit": 3,
         "days": ["Thu"],
         "startTime": "08:00",
@@ -47,7 +47,7 @@
     {
         "courseId": "CS251",
         "courseName": "Database Systems 1",
-        "prerequisite": [],
+        "prerequisite": ["CS213"],
         "credit": 3,
         "days": ["Fri"],
         "startTime": "9:30",
@@ -56,7 +56,7 @@
     {
         "courseId": "CS281",
         "courseName": "Object-Oriented Analysis & Design",
-        "prerequisite": [],
+        "prerequisite": ["!CS251"],
         "credit": 3,
         "days": ["Wed"],
         "startTime": "9:30",
@@ -65,7 +65,7 @@
     {
         "courseId": "CS288",
         "courseName": "Introduction to Software Testing",
-        "prerequisite": [],
+        "prerequisite": ["CS111"],
         "credit": 3,
         "days": ["Wed", "Fri"],
         "startTime": "11:00",
@@ -101,7 +101,7 @@
     {
         "courseId": "CS302",
         "courseName": "Computer Security",
-        "prerequisite": [],
+        "prerequisite": ["CS342"],
         "credit": 3,
         "days": ["Wed"],
         "startTime": "08:00",
@@ -110,7 +110,7 @@
     {
         "courseId": "CS311",
         "courseName": "Design and Analysis of Algorithms",
-        "prerequisite": [],
+        "prerequisite": ["CS213"],
         "credit": 3,
         "days": ["Tue"],
         "startTime": "08:00",
@@ -119,7 +119,7 @@
     {
         "courseId": "CS314",
         "courseName": "Theory of Computation",
-        "prerequisite": [],
+        "prerequisite": ["CS231"],
         "credit": 3,
         "days": ["Fri"],
         "startTime": "08:00",
@@ -128,7 +128,7 @@
     {
         "courseId": "CS326",
         "courseName": "Embedded Systems Design",
-        "prerequisite": [],
+        "prerequisite": ["CS223"],
         "credit": 3,
         "days": ["Wed", "Fri"],
         "startTime": "15:00",
@@ -137,7 +137,7 @@
     {
         "courseId": "CS335",
         "courseName": "Compiler Construction",
-        "prerequisite": [],
+        "prerequisite": ["CS314"],
         "credit": 3,
         "days": ["Wed", "Fri"],
         "startTime": "15:00",
@@ -146,7 +146,7 @@
     {
         "courseId": "CS341",
         "courseName": "Operating Systems 1",
-        "prerequisite": [],
+        "prerequisite": ["CS213", "CS223"],
         "credit": 3,
         "days": ["Wed", "Fri"],
         "startTime": "15:00",
@@ -155,7 +155,7 @@
     {
         "courseId": "CS348",
         "courseName": "Introduction to Cluster Computing and Distributed Computing",
-        "prerequisite": [],
+        "prerequisite": ["CS341"],
         "credit": 3,
         "days": ["Tue", "Thu"],
         "startTime": "15:00",
@@ -164,7 +164,7 @@
     {
         "courseId": "CS356",
         "courseName": "Business Computing and Electronic Commerce",
-        "prerequisite": [],
+        "prerequisite": ["CS251"],
         "credit": 3,
         "days": ["Tue", "Thu"],
         "startTime": "09:30",
@@ -173,7 +173,7 @@
     {
         "courseId": "CS358",
         "courseName": "Computer Simulation and Forecasting Techniques in Business",
-        "prerequisite": [],
+        "prerequisite": ["CS251"],
         "credit": 3,
         "days": ["Wed", "Fri"],
         "startTime": "13:30",
@@ -182,7 +182,7 @@
     {
         "courseId": "CS359",
         "courseName": "Document Indexing and Retrieval",
-        "prerequisite": [],
+        "prerequisite": ["CS251"],
         "credit": 3,
         "days": ["Tue", "Thu"],
         "startTime": "15:00",
@@ -191,7 +191,7 @@
     {
         "courseId": "CS366",
         "courseName": "Artificial Intelligence in Practice",
-        "prerequisite": [],
+        "prerequisite": ["CS365"],
         "credit": 3,
         "days": ["Tue", "Thu"],
         "startTime": "09:30",
@@ -200,7 +200,7 @@
     {
         "courseId": "CS367",
         "courseName": "Machine Learning",
-        "prerequisite": [],
+        "prerequisite": ["CS365"],
         "credit": 3,
         "days": ["Tue", "Thu"],
         "startTime": "13:30",
@@ -209,7 +209,7 @@
     {
         "courseId": "CS377",
         "courseName": "Digital Image Processing",
-        "prerequisite": [],
+        "prerequisite": ["CS213"],
         "credit": 3,
         "days": ["Tue", "Thu"],
         "startTime": "15:00",
@@ -218,7 +218,7 @@
     {
         "courseId": "CS385",
         "courseName": "Component-Based Software Development",
-        "prerequisite": [],
+        "prerequisite": ["CS285"],
         "credit": 3,
         "days": ["Tue", "Thu"],
         "startTime": "13:30",
@@ -227,7 +227,7 @@
     {
         "courseId": "CS386",
         "courseName": "Software Metrics,Measurements and Empirical Analysis Method",
-        "prerequisite": [],
+        "prerequisite": ["CS286"],
         "credit": 3,
         "days": ["Wed", "Fri"],
         "startTime": "15:00",
@@ -236,7 +236,7 @@
     {
         "courseId": "CS388",
         "courseName": "Software Construction and Evolution",
-        "prerequisite": [],
+        "prerequisite": ["CS281"],
         "credit": 3,
         "days": ["Wed", "Fri"],
         "startTime": "15:00",
@@ -245,7 +245,7 @@
     {
         "courseId": "CS389",
         "courseName": "Software Architecture",
-        "prerequisite": [],
+        "prerequisite": ["CS285"],
         "credit": 3,
         "days": ["Tue", "Thu"],
         "startTime": "15:00",
@@ -254,7 +254,7 @@
     {
         "courseId": "CS397",
         "courseName": "Computer Graphics 2",
-        "prerequisite": [],
+        "prerequisite": ["CS299"],
         "credit": 3,
         "days": ["Wed", "Fri"],
         "startTime": "13:30",
@@ -263,7 +263,7 @@
     {
         "courseId": "CS398",
         "courseName": "Computer Animation",
-        "prerequisite": [],
+        "prerequisite": ["CS299", "CS396"],
         "credit": 3,
         "days": ["Wed", "Fri"],
         "startTime": "11:00",
@@ -272,7 +272,7 @@
     {
         "courseId": "CS402",
         "courseName": "Special Projects 2",
-        "prerequisite": [],
+        "prerequisite": ["CS401"],
         "credit": 3,
         "days": ["Mon"],
         "startTime": "08:00",
@@ -281,7 +281,7 @@
     {
         "courseId": "CS408",
         "courseName": "Seminar in System Engineering",
-        "prerequisite": [],
+        "prerequisite": ["CS284"],
         "credit": 3,
         "days": ["Wed", "Fri"],
         "startTime": "11:00",
@@ -290,7 +290,7 @@
     {
         "courseId": "CS426",
         "courseName": "Parallel Computing",
-        "prerequisite": [],
+        "prerequisite": ["CS341"],
         "credit": 3,
         "days": ["Wed", "Fri"],
         "startTime": "16:30",
@@ -299,7 +299,7 @@
     {
         "courseId": "CS429",
         "courseName": "Selected Topics in Computer Architecture",
-        "prerequisite": [],
+        "prerequisite": ["CS223"],
         "credit": 3,
         "days": ["Thu"],
         "startTime": "08:00",
@@ -308,7 +308,7 @@
     {
         "courseId": "CS439",
         "courseName": "Selected Topics in Programming Languages",
-        "prerequisite": [],
+        "prerequisite": ["CS231"],
         "credit": 3,
         "days": ["Wed","Fri"],
         "startTime": "15:00",
@@ -317,7 +317,7 @@
     {
         "courseId": "CS445",
         "courseName": "Network Design and Management",
-        "prerequisite": [],
+        "prerequisite": ["CS342"],
         "credit": 3,
         "days": ["Wed","Fri"],
         "startTime": "08:00",
@@ -326,7 +326,7 @@
     {
         "courseId": "CS446",
         "courseName": "Net-Centric Computing 2",
-        "prerequisite": [],
+        "prerequisite": ["CS342"],
         "credit": 3,
         "days": ["Tue","Thu"],
         "startTime": "13:30",
@@ -335,7 +335,7 @@
     {
         "courseId": "CS459",
         "courseName": "Selected Topics in Information Systems",
-        "prerequisite": [],
+        "prerequisite": ["CS251 OR CS456"],
         "credit": 3,
         "days": ["Wed","Fri"],
         "startTime": "13:30",
@@ -344,7 +344,7 @@
     {
         "courseId": "CS466",
         "courseName": "Natural Language Processing",
-        "prerequisite": [],
+        "prerequisite": ["CS366"],
         "credit": 3,
         "days": ["Tue","Thu"],
         "startTime": "09:30",
@@ -353,7 +353,7 @@
     {
         "courseId": "CS469",
         "courseName": "Selected Topics in Artificial Intelligent Systems",
-        "prerequisite": [],
+        "prerequisite": ["CS366"],
         "credit": 3,
         "days": ["Wed","Fri"],
         "startTime": "09:30",
@@ -362,7 +362,7 @@
     {
         "courseId": "CS478",
         "courseName": "Selected Topics in Human-Computer Interaction",
-        "prerequisite": [],
+        "prerequisite": ["CS374"],
         "credit": 3,
         "days": ["Tue","Thu"],
         "startTime": "09:30",
@@ -371,7 +371,7 @@
     {
         "courseId": "CS485",
         "courseName": "Web Application Development",
-        "prerequisite": [],
+        "prerequisite": ["CS342"],
         "credit": 3,
         "days": ["Tue","Thu"],
         "startTime": "08:00",
@@ -380,7 +380,7 @@
     {
         "courseId": "CS487",
         "courseName": "Software Project Management",
-        "prerequisite": [],
+        "prerequisite": ["CS286", "CS287"],
         "credit": 3,
         "days": ["Wed","Fri"],
         "startTime": "13:30",
@@ -389,7 +389,7 @@
     {
         "courseId": "CS497",
         "courseName": "Real-time Graphics",
-        "prerequisite": [],
+        "prerequisite": ["CS397"],
         "credit": 3,
         "days": ["Wed","Fri"],
         "startTime": "09:30",
@@ -398,7 +398,7 @@
     {
         "courseId": "CS499",
         "courseName": "Selected Topics in Computer Graphics",
-        "prerequisite": [],
+        "prerequisite": ["!CS398"],
         "credit": 3,
         "days": ["Wed","Fri"],
         "startTime": "15:00",
