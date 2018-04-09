@@ -12,11 +12,15 @@ Folder are split into 2 main parts
 
 Deployment
 -----
-**client**
+**client folder**
 > npm install && npm start
 
-**server**
+``` application will launch in localhost:3000 ```
+
+**server folder**
 > npm install && npm start
+
+``` application will launch in localhost:4000 ```
 
 **docker**
 > in coming
