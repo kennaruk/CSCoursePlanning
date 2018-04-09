@@ -1,0 +1,101 @@
+[
+    {
+        "courseId": "CS111",
+        "courseName": "Object-Oriented Programming",
+        "prerequisite": [],
+        "credit": 3,
+        "days": ["Tue"],
+        "startTime": "13:30",
+        "endTime": "16:30"
+    },
+    {
+        "courseId": "CS112",
+        "courseName": "Intro. to Object-Oriented Programming",
+        "prerequisite": [],
+        "credit": 3,
+        "days": ["Wed", "Fri"],
+        "startTime": "15:00",
+        "endTime": "16:30"
+    },
+    {
+        "courseId": "CS115",
+        "courseName": "Practicum for Object-Oriented Programming",
+        "prerequisite": [],
+        "credit": 1,
+        "days": ["Thu"],
+        "startTime": "13:30",
+        "endTime": "16:30"
+    },
+    {
+        "courseId": "CS214",
+        "courseName": "Social & Professional Ethics",
+        "prerequisite": [],
+        "credit": 3,
+        "days": ["Tue", "Thu"],
+        "startTime": "11:00",
+        "endTime": "12:30"
+    },
+    {
+        "courseId": "CS231",
+        "courseName": "Programming Languages & Paradigms",
+        "prerequisite": [],
+        "credit": 3,
+        "days": ["Thu"],
+        "startTime": "08:00",
+        "endTime": "11:00"
+    },
+    {
+        "courseId": "CS251",
+        "courseName": "Database Systems 1",
+        "prerequisite": [],
+        "credit": 3,
+        "days": ["Fri"],
+        "startTime": "9:30",
+        "endTime": "12:30"
+    },
+    {
+        "courseId": "CS281",
+        "courseName": "Object-Oriented Analysis & Design",
+        "prerequisite": [],
+        "credit": 3,
+        "days": ["Wed"],
+        "startTime": "9:30",
+        "endTime": "12:30"
+    },
+    {
+        "courseId": "CS288",
+        "courseName": "Introduction to Software Testing",
+        "prerequisite": [],
+        "credit": 3,
+        "days": ["Wed", "Fri"],
+        "startTime": "11:00",
+        "endTime": "12:30"
+    },
+    {
+        "courseId": "CS295",
+        "courseName": "Mathematics for Computer Graphics",
+        "prerequisite": [],
+        "credit": 3,
+        "days": ["Tue", "Thu"],
+        "startTime": "15:00",
+        "endTime": "16:30"
+    },
+    {
+        "courseId": "CS300",
+        "courseName": "Seminar in Practical Programming",
+        "prerequisite": [],
+        "credit": 3,
+        "days": ["Mon"],
+        "startTime": "08:00",
+        "endTime": "09:30"
+    },
+    {
+        "courseId": "CS301",
+        "courseName": "Computer Science Project Proposal and Presentation",
+        "prerequisite": [],
+        "credit": 3,
+        "days": ["Wed"],
+        "startTime": "08:00",
+        "endTime": "09:30"
+    }
+]

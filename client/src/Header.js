@@ -4,6 +4,7 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import demo from './demo.gif'
 import { TabCourse } from './TabCourse.js'
+// import { Application } from './Application.js'
 
 export class Header extends React.Component {
     constructor(props) {
@@ -40,8 +41,9 @@ export class Header extends React.Component {
 
                     </DropDownMenu>
                 </div>
-                <div style={{ width: "45%", float: "left", margin: "10px" }}>
-                    <img src={chk} width="100%" />
+                <div style={{ width: "45%", float: "left", margin: "10px" }}> 
+                    <img src={chk} width="100%"/>
+                    <p>เดี๋ยวจะใช้ full calendar.io ทำ</p>
                 </div>
                 <div style={{ width: "50%", float: "left", margin: "20px" }}>
                     <h3>Course</h3>

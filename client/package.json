@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "fullcalendar": "^3.9.0",
     "interact.js": "^1.2.8",
+    "jquery": "^3.3.1",
     "material-ui": "^0.20.0",
     "moment": "^2.22.0",
     "react": "^16.3.1",
