@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import FontIcon from 'material-ui/FontIcon';
-import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
+import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 
@@ -18,7 +18,7 @@ export class Footer extends Component {
     selectedIndex: 0,
   };
 
-  select = (index) => this.setState({selectedIndex: index});
+  select = (index) => this.setState({ selectedIndex: index });
 
   render() {
     return (
