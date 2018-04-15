@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 
 /**
@@ -12,9 +12,7 @@ export class TabSearch extends Component {
   handleUpdateInput = (value) => {
     this.setState({
       dataSource: [
-        value,
-        value + value,
-        value + value + value,
+        value
       ],
     });
   };
@@ -23,7 +21,7 @@ export class TabSearch extends Component {
     return (
       <div>
         <AutoComplete
-          hintText="Type course name"
+          hintText="Type course id"
           dataSource={this.state.dataSource}
           onUpdateInput={this.handleUpdateInput}
           floatingLabelText="Search"

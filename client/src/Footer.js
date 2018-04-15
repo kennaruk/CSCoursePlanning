@@ -29,16 +29,6 @@ export class Footer extends Component {
             icon={recentsIcon}
             onClick={() => this.select(0)}
           />
-          {/* <BottomNavigationItem
-            label="Favorites"
-            icon={favoritesIcon}
-            onClick={() => this.select(1)}
-          /> */}
-          {/* <BottomNavigationItem
-            label="Nearby"
-            icon={nearbyIcon}
-            onClick={() => this.select(2)}
-          /> */}
         </BottomNavigation>
       </Paper>
     );
