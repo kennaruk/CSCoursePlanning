@@ -2,21 +2,24 @@ import React from 'react'
 import AppBar from 'material-ui/AppBar';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
-import demo from './demo.gif'
 import { TabCourse } from './TabCourse.js'
-// import { Application } from './Application.js'
+import { FullCalendar } from './FullCalendar.js'
 
 export class Header extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { value: 0 };
+        this.state = { 
+            value: 0,
+        };
     }
 
-    handleChange = (event, index, value) => this.setState({ value });
+    handleChange = (event, index, value) => { 
+        this.setState({ value }); 
+    }
 
 
     render() {
-        const chk = this.state.value !== 0 ? demo : null
+        const chk = this.state.value !== 0 ? <FullCalendar /> : null
 
         return (
             <div>
@@ -26,7 +29,6 @@ export class Header extends React.Component {
                 />
 
                 <div>
-
                     <DropDownMenu value={this.state.value} onChange={this.handleChange}>
                         <MenuItem value={0} primaryText="ชั้นปี" />
                         <MenuItem value={1} primaryText="ปี 1" />
@@ -38,12 +40,10 @@ export class Header extends React.Component {
                         <MenuItem value={0} primaryText="ภาคเรียน" />
                         <MenuItem value={1} primaryText="ภาคเรียนที่ 1" />
                         <MenuItem value={2} primaryText="ภาคเรียนที่ 2" />
-
                     </DropDownMenu>
                 </div>
-                <div style={{ width: "45%", float: "left", margin: "10px" }}> 
-                    <img src={chk} width="100%"/>
-                    <p>เดี๋ยวจะใช้ full calendar.io ทำ</p>
+                <div style={{ width: "45%", float: "left", margin: "10px" }}>
+                    {chk}
                 </div>
                 <div style={{ width: "50%", float: "left", margin: "20px" }}>
                     <h3>Course</h3>

@@ -100,7 +100,6 @@ export class TabCourse extends React.Component {
                             <RaisedButton label="CS4xx" primary={true} style={style_btn} onClick={this.handleShowCs4} />
                         </div>
                     </Tab>
-                    {console.log(this.state.toggle)}
                 </Tabs>
                 {chk}
             </div>
