@@ -20,10 +20,12 @@ Deployment
 **server folder**
 > npm install && npm start
 
+> mongod --dbpath <relative path to ~/server/db/>
+
 ``` application will launch in localhost:4000 ```
 
 **docker**
-> in coming
+> in comming
 
 
 Collabolators

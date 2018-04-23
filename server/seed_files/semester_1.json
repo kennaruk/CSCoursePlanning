@@ -1,0 +1,110 @@
+[{
+    "courseId": "CS101",
+    "courseName": "Discrete Structures",
+    "prerequisite": [],
+    "credit": 3,
+    "days": ["Tue", "Thu"],
+    "startTime": "08:00",
+    "endTime": "09:30"
+  },
+  {
+    "courseId": "CS102",
+    "courseName": "Computer Programming Fundamentals",
+    "prerequisite": [],
+    "credit": 3,
+    "days": ["Tue"],
+    "startTime": "09:30",
+    "endTime": "12:30"
+  } ,
+  {
+    "courseId": "CS105",
+    "courseName": "Practicum for Structural Programming",
+    "prerequisite": ["!CS102"],
+    "credit": 1,
+    "days": ["Thu"],
+    "startTime": "09:00",
+    "endTime": "12:30"
+  } ,
+  {
+    "courseId": "CS211",
+    "courseName": "Software Development using Application Programming Interface",
+    "prerequisite": ["CS111"],
+    "credit": 3,
+    "days": ["Tue"],
+    "startTime": "08:00",
+    "endTime": "11:00"
+  } ,
+  {
+    "courseId": "CS213",
+    "courseName": "Data Structures",
+    "prerequisite": ["CS111 OR CS112"],
+    "credit": 3,
+    "days": ["Tue", "Thu"],
+    "startTime": "15:00",
+    "endTime": "16:30"
+  } ,
+  {
+    "courseId": "CS223",
+    "courseName": "Computer Organization and Architecture",
+    "prerequisite": ["CS111 OR CS112"],
+    "credit": 3,
+    "days": ["Tue", "Thu"],
+    "startTime": "13:30",
+    "endTime": "15:00"
+  }  ,
+  {
+    "courseId": "CS301",
+    "courseName": "Computer Science Project Proposal and Presentation",
+    "prerequisite": [],
+    "credit": 3,
+    "days": ["Mon"],
+    "startTime": "09:30",
+    "endTime": "12:30"
+  } ,
+  {
+    "courseId": "CS342",
+    "courseName": "Net-Centric Computing 1",
+    "prerequisite": ["CS341"],
+    "credit": 3,
+    "days": ["Tue", "Thu"],
+    "startTime": "15:00",
+    "endTime": "16:30"
+  } ,
+  {
+    "courseId": "CS355",
+    "courseName": "Mobile Application Development",
+    "prerequisite": ["CS251"],
+    "credit": 3,
+    "days": ["Tue", "Thu"],
+    "startTime": "15:00",
+    "endTime": "16:30"
+  } 
+  ,
+  {
+    "courseId": "CS407",
+    "courseName": "Seminar in Software Engineering",
+    "prerequisite": ["CS284"],
+    "credit": 3,
+    "days": ["Tue","Thu"],
+    "startTime": "11:00",
+    "endTime": "12:30"
+  } ,
+  {
+    "courseId": "CS465",
+    "courseName": "Advanced SearchStrategies",
+    "prerequisite": ["CS366"],
+    "credit": 3,
+    "days": ["Wed", "Fri"],
+    "startTime": "08:00",
+    "endTime": "09:30"
+  } ,
+  {
+    "courseId": "CS479",
+    "courseName": "Selected Topics in Multimedia Content Analysis",
+    "prerequisite": ["CS377"],
+    "credit": 3,
+    "days": ["Thu"],
+    "startTime": "09:30",
+    "endTime": "12:30"
+  } 
+]
