@@ -4,14 +4,20 @@ import { Header } from './Header.js'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Footer } from './Footer.js'
 
-// import { FullcalendarTest } from './FullcalendarTest.js'
+const footer_styles = {
+  headline: {
+    position: "fixed",
+    left: '0',
+    bottom: '0',
+    width: '100%'
+  },
+};
 
 class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
         <Header />
-        {/* <Application /> */}
         <Footer />
       </MuiThemeProvider>
     );

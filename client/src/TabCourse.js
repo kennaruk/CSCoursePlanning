@@ -3,10 +3,7 @@ import { Tabs, Tab } from 'material-ui/Tabs';
 import Course from './Course.js'
 import { TabSearch } from './TabSearch.js'
 import RaisedButton from 'material-ui/RaisedButton';
-import { Cs1 } from './Cs1.js'
-import { Cs2 } from './Cs2.js'
-import { Cs3 } from './Cs3.js'
-import { Cs4 } from './Cs4.js'
+import { CScourse } from './CScourse.js'
 
 const styles = {
     headline: {
@@ -18,7 +15,8 @@ const styles = {
 };
 
 const style_btn = {
-    margin: 10
+    margin: 10,
+    width: 220
 }
 
 
@@ -78,8 +76,7 @@ export class TabCourse extends React.Component {
 
     render() {
 
-        const chk = this.state.showCourse == 1 ? <Cs1 /> : this.state.showCourse == 2 ? <Cs2 /> : this.state.showCourse == 3 ? <Cs3 /> : this.state.showCourse == 4 ? <Cs4 /> : null
-       
+        const chk = this.state.showCourse === 0 ? null : <CScourse show={this.state.showCourse} semester={this.props.semester}/>
         return (
             <div>
                 <Tabs
@@ -88,7 +85,8 @@ export class TabCourse extends React.Component {
                 >
                     <Tab label="Search" value="a" onActive={this.toggleSearch}>
                         <div>
-                            <TabSearch />
+                            <TabSearch chksemester={this.props.semester}/>
+                            {console.log('tab couse props ' + this.props.semester)}
                         </div>
                     </Tab>
                     <Tab label="Course list" value="b" >
@@ -102,6 +100,7 @@ export class TabCourse extends React.Component {
                     </Tab>
                 </Tabs>
                 {chk}
+                
             </div>
         );
     }

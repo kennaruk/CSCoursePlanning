@@ -18,10 +18,11 @@ export class FullCalendar extends React.Component {
 class Calendar extends React.Component {
     componentDidMount() {
         $('#calendar').fullCalendar({
+            height: 750,
             header: {
-                left: 'prev,next today',
+                left: null,
                 center: 'title',
-                right: 'agendaDay,agendaWeek',
+                right: null
             },
             defaultView: 'agendaWeek',
             editable: true,
