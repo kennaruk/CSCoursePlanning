@@ -16,6 +16,15 @@
     "startTime": "09:30",
     "endTime": "12:30"
   } ,
+   {
+    "courseId": "CS103",
+    "courseName": "Introduction to Computer Programming",
+    "prerequisite": [],
+    "credit": 3,
+    "days": ["Wed,Fri"],
+    "startTime": "09:30",
+    "endTime": "11:00"
+  } ,
   {
     "courseId": "CS105",
     "courseName": "Practicum for Structural Programming",
@@ -44,6 +53,15 @@
     "endTime": "16:30"
   } ,
   {
+    "courseId": "CS215",
+    "courseName": " Programming Practicum using Application Programming Interface",
+    "prerequisite": ["!CS211"],
+    "credit": 3,
+    "days": ["Thu"],
+    "startTime": "08:00",
+    "endTime": "11:00"
+  }  ,
+  {
     "courseId": "CS223",
     "courseName": "Computer Organization and Architecture",
     "prerequisite": ["CS111 OR CS112"],
@@ -52,6 +70,96 @@
     "startTime": "13:30",
     "endTime": "15:00"
   }  ,
+  {
+    "courseId": "CS275",
+    "courseName": "Human Information Processing",
+    "prerequisite": [],
+    "credit": 3,
+    "days": ["Wed", "Fri"],
+    "startTime": "13:30",
+    "endTime": "15:00"
+  }  ,
+  {
+    "courseId": "CS284",
+    "courseName": "Introduction to Software Engineering",
+    "prerequisite": ["CS111 OR CS112"],
+    "credit": 3,
+    "days": ["Wed", "Fri"],
+    "startTime": "13:30",
+    "endTime": "15:00"
+  }  ,
+  {
+    "courseId": "CS285",
+    "courseName": "Practices and Patterns in Object-Oriented Programming",
+    "prerequisite": ["CS213"],
+    "credit": 3,
+    "days": ["Tue", "Thu"],
+    "startTime": "13:30",
+    "endTime": "15:00"
+  }  ,
+  {
+    "courseId": "CS286",
+    "courseName": "Software Process and Quality Assurance",
+    "prerequisite": ["CS284"],
+    "credit": 3,
+    "days": ["Wed", "Fri"],
+    "startTime": "13:30",
+    "endTime": "15:00"
+  }  ,
+  {
+    "courseId": "CS287",
+    "courseName": "Software Requirement Specification and Management",
+    "prerequisite": ["CS284"],
+    "credit": 3,
+    "days": ["Wed", "Fri"],
+    "startTime": "08:00",
+    "endTime": "09:30"
+  }  ,
+  {
+    "courseId": "CS296",
+    "courseName": "Art and Design Foundations",
+    "prerequisite": [],
+    "credit": 3,
+    "days": ["Sat"],
+    "startTime": "09:30",
+    "endTime": "12:30"
+  }  ,
+  {
+    "courseId": "CS297",
+    "courseName": "Fundamental Techniques in Computer Graphics using API",
+    "prerequisite": ["!CS299"],
+    "credit": 3,
+    "days": ["Wed","Fri"],
+    "startTime": "13:30",
+    "endTime": "15:00"
+  }  ,
+  {
+    "courseId": "CS298",
+    "courseName": "Fundamentals of Computer Graphics",
+    "prerequisite": ["CS213","CS332"],
+    "credit": 3,
+    "days": ["Tue","Thu"],
+    "startTime": "08:00",
+    "endTime": "09:30"
+  }  ,
+  {
+    "courseId": "CS299",
+    "courseName": "Computer Graphics 1",
+    "prerequisite": ["CS213","CS295"],
+    "credit": 3,
+    "days": ["Wed","Fri"],
+    "startTime": "15:00",
+    "endTime": "16:30"
+  }  ,
+  {
+    "courseId": "CS300",
+    "courseName": "Seminar in Practical Programming",
+    "prerequisite": [],
+    "credit": 1,
+    "days": ["Mon"],
+    "startTime": "08:00",
+    "endTime": "09:30"
+},
   {
     "courseId": "CS301",
     "courseName": "Computer Science Project Proposal and Presentation",
@@ -78,8 +186,61 @@
     "days": ["Tue", "Thu"],
     "startTime": "15:00",
     "endTime": "16:30"
-  } 
-  ,
+  } ,
+  {
+    "courseId": "CS365",
+    "courseName": "Basic Theory in Artificial Intelligence",
+    "prerequisite": ["CS213"],
+    "credit": 3,
+    "days": ["Tue", "Thu"],
+    "startTime": "15:00",
+    "endTime": "16:30"
+  } ,
+  {
+    "courseId": "CS374",
+    "courseName": "Human – Computer Interaction",
+    "prerequisite": ["CS211","CS284"],
+    "credit": 3,
+    "days": ["Tue", "Thu"],
+    "startTime": "11:00",
+    "endTime": "12:30"
+  } ,
+  {
+    "courseId": "CS387",
+    "courseName": "Software Configuration Management",
+    "prerequisite": ["CS286"],
+    "credit": 3,
+    "days": ["Tue", "Thu"],
+    "startTime": "13:30",
+    "endTime": "15:00"
+  } ,
+  {
+    "courseId": "CS396",
+    "courseName": "Computer Graphics Modeling",
+    "prerequisite": ["CS295","CS296"],
+    "credit": 3,
+    "days": ["Wed", "Fri"],
+    "startTime": "08:00",
+    "endTime": "09:30"
+  } ,
+  {
+    "courseId": "CS399",
+    "courseName": "Three Dimensional Industry Concepts and Practices",
+    "prerequisite": ["!CS398"],
+    "credit": 3,
+    "days": ["Wed", "Fri"],
+    "startTime": "11:00",
+    "endTime": "12:30"
+  } ,
+  {
+    "courseId": "CS401",
+    "courseName": "Special Projects 1",
+    "prerequisite": ["CS300","CS301"],
+    "credit": 2,
+    "days": ["Mon"],
+    "startTime": "08:00",
+    "endTime": "09:30"
+  } ,
   {
     "courseId": "CS407",
     "courseName": "Seminar in Software Engineering",
@@ -90,13 +251,103 @@
     "endTime": "12:30"
   } ,
   {
+    "courseId": "CS409",
+    "courseName": "Selected Topics in Computer Science",
+    "prerequisite": ["CS211"],
+    "credit": 3,
+    "days": ["Wed","Fri"],
+    "startTime": "13:30",
+    "endTime": "15:00"
+  } ,
+  {
+    "courseId": "CS427",
+    "courseName": "Parallel Algorithm Designs",
+    "prerequisite": ["CS311","CS341"],
+    "credit": 3,
+    "days": ["Wed","Fri"],
+    "startTime": "16:30",
+    "endTime": "18:00"
+  } ,
+  {
+    "courseId": "CS428",
+    "courseName": "Introduction to Modeling and Simulation",
+    "prerequisite": ["ST216","CS213"],
+    "credit": 3,
+    "days": ["Tue","Thu"],
+    "startTime": "15:00",
+    "endTime": "16:30"
+  } ,
+  {
+    "courseId": "CS447",
+    "courseName": "Operating Systems 2",
+    "prerequisite": ["CS341"],
+    "credit": 3,
+    "days": ["Tue","Thu"],
+    "startTime": "09:30",
+    "endTime": "11:00"
+  } ,
+  {
+    "courseId": "CS448",
+    "courseName": "Net-Centric Computing 3",
+    "prerequisite": ["CS446"],
+    "credit": 3,
+    "days": ["Tue","Thu"],
+    "startTime": "09:30",
+    "endTime": "11:00"
+  } ,
+  {
+    "courseId": "CS449",
+    "courseName": "Selected Topics in Net-Centric Computing",
+    "prerequisite": ["CS342"],
+    "credit": 3,
+    "days": ["Tue","Thu"],
+    "startTime": "13:30",
+    "endTime": "15:00"
+  } ,
+  {
+    "courseId": "CS456",
+    "courseName": "Management Information Systems",
+    "prerequisite": ["CS251"],
+    "credit": 3,
+    "days": ["Tue","Thu"],
+    "startTime": "13:30",
+    "endTime": "15:00"
+  } ,
+  {
+    "courseId": "CS457",
+    "courseName": "Database Systems 2",
+    "prerequisite": ["CS251"],
+    "credit": 3,
+    "days": ["Thu"],
+    "startTime": "09:30",
+    "endTime": "12:30"
+  } ,
+  {
+    "courseId": "CS458",
+    "courseName": "Information Systems for Entrepreneur Management",
+    "prerequisite": ["CS356"],
+    "credit": 3,
+    "days": ["Wed","Fri"],
+    "startTime": "09:30",
+    "endTime": "12:30"
+  } ,
+  {
     "courseId": "CS465",
     "courseName": "Advanced SearchStrategies",
     "prerequisite": ["CS366"],
     "credit": 3,
     "days": ["Wed", "Fri"],
-    "startTime": "08:00",
-    "endTime": "09:30"
+    "startTime": "09:30",
+    "endTime": "12:00"
+  } ,
+  {
+    "courseId": "CS477",
+    "courseName": "Introduction to Computer Vision",
+    "prerequisite": ["CS377"],
+    "credit": 3,
+    "days": ["Wed", "Fri"],
+    "startTime": "13:30",
+    "endTime": "15:00"
   } ,
   {
     "courseId": "CS479",
@@ -106,5 +357,42 @@
     "days": ["Thu"],
     "startTime": "09:30",
     "endTime": "12:30"
-  } 
+  } ,
+  {
+    "courseId": "CS488",
+    "courseName": "Formal Methods",
+    "prerequisite": ["CS287","CS288"],
+    "credit": 3,
+    "days": ["Tue","Thu"],
+    "startTime": "08:00",
+    "endTime": "09:30"
+  },
+  {
+    "courseId": "CS489",
+    "courseName": "Selected Topics in Software Engineering",
+    "prerequisite": ["CS284"],
+    "credit": 3,
+    "days": ["Tue","Thu"],
+    "startTime": "08:00",
+    "endTime": "09:30"
+  },
+  {
+    "courseId": "CS496",
+    "courseName": "Rendering",
+    "prerequisite": ["CS299"],
+    "credit": 3,
+    "days": ["Wed", "Fri"],
+    "startTime": "15:00",
+    "endTime": "16:30"
+  },
+  {
+    "courseId": "CS498",
+    "courseName": "Game Programming",
+    "prerequisite": ["CS398"],
+    "credit": 3,
+    "days": ["Wed", "Fri"],
+    "startTime": "09:30",
+    "endTime": "11:00"
+  }
+  
 ]
