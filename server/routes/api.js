@@ -4,7 +4,5 @@ var todb = require('../models/query')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+    res.json({ message: 'api page' });
 });
-
-module.exports = router;
