@@ -11,7 +11,7 @@ module.exports = function(mongoose) {
         startTime: Joi.string(),
         endTime: Joi.string(),
         timeFormat: Joi.string()
-    })
+    });
 
     var mongooseCourseSchema = new Mongoose.Schema(Joigoose.convert(joiCourseSchema));
     return mongoose.model('Course', mongooseUserSchema);

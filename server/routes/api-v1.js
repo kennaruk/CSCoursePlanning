@@ -6,3 +6,10 @@ var todb = require('../models/query')
 router.get('/', function(req, res, next) {
     res.json({ message: 'api page' });
 });
+
+router.get('/course/:year/:semester', function(req, res, next) {
+    let year = parseInt(req.params.year);
+    let semester = parseInt(req.params.semester);
+    
+    
+});
