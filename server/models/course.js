@@ -5,7 +5,7 @@ module.exports = function(mongoose) {
     var joiCourseSchema = Joi.object({
         courseId: Joi.string(),
         courseName: Joi.string(),
-        prerequisite: Joi.string(),
+        prerequisite: Joi.array(),
         credit: Joi.number(),
         semester: Joi.number(),
         days: Joi.array().items(Joi.string()),

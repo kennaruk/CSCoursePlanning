@@ -16,12 +16,8 @@ exports.getAllCourse = (cb) => {
     Course.find(cb);
 }
 
-exports.getCourseByYearAndSemester = (params, cb) => {
-    let year = isNaN(params.year) ? null : +params.year;
-    let semester = isNaN(params.semester) ? null : +param.semester;
-
-    Course.find({}).exec()
-        .then();
+exports.getCourseBySemester = (semester, cb) => {
+    Course.find({semester: semester}).exec(cb);
 }
 
 exports.addUserByEmailAndPassword = (params, cb) => {
@@ -33,9 +29,39 @@ exports.addUserByEmailAndPassword = (params, cb) => {
     });
 }
 
-var addCourseSemester1 = (params, cb) => {
-    let semester_1 = require('../../seed_files/semester_1.json');
-    console.log(semester_1)
-    // Course
+exports.removeAllCourse = (cb) => {
+    Course.remove({}).exec(cb);
 }
-addCourseSemester1();
+
+exports.addCourseSemester1 = (cb) => {
+    let semester_1 = require('../../seed_files/semester_1.json');
+    let itemProcessed = 0;
+
+    semester_1.forEach(datum => {
+        itemProcessed++;
+        datum.semester = 1;
+
+        let course = new Course(datum);
+        course.save();
+
+        if(itemProcessed === semester_1.length)
+            cb();
+    })
+}
+
+exports.addCourseSemester2 = (cb) => {
+    let semester_2 = require('../../seed_files/semester_2.json');
+    let itemProcessed = 0;
+    
+    semester_2.forEach(datum => {
+        itemProcessed++;
+        datum.semester = 2;
+
+        let course = new Course(datum)
+        course.save();
+
+        if(itemProcessed === semester_2.length)
+            cb();
+    });
+}
+
