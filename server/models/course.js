@@ -7,6 +7,7 @@ module.exports = function(mongoose) {
         courseName: Joi.string(),
         prerequisite: Joi.string(),
         credit: Joi.number(),
+        semester: Joi.number(),
         days: Joi.array().items(Joi.string()),
         startTime: Joi.string(),
         endTime: Joi.string(),

@@ -32,3 +32,10 @@ exports.addUserByEmailAndPassword = (params, cb) => {
 
     });
 }
+
+var addCourseSemester1 = (params, cb) => {
+    let semester_1 = require('../../seed_files/semester_1.json');
+    console.log(semester_1)
+    // Course
+}
+addCourseSemester1();
