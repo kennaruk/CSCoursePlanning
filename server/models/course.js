@@ -1,6 +1,6 @@
 module.exports = function(mongoose) {
-    const joigoose = require('joigoose')(mongoose);
-    const joi = require('joi');
+    const Joigoose = require('joigoose')(mongoose);
+    const Joi = require('joi');
 
     var joiCourseSchema = Joi.object({
         courseId: Joi.string(),
@@ -13,6 +13,6 @@ module.exports = function(mongoose) {
         timeFormat: Joi.string()
     });
 
-    var mongooseCourseSchema = new Mongoose.Schema(Joigoose.convert(joiCourseSchema));
-    return mongoose.model('Course', mongooseUserSchema);
+    var mongooseCourseSchema = new mongoose.Schema(Joigoose.convert(joiCourseSchema));
+    return mongoose.model('Course', mongooseCourseSchema);
 }

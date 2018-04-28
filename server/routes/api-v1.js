@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 router.get('/course/:year/:semester', function(req, res, next) {
     let year = parseInt(req.params.year);
     let semester = parseInt(req.params.semester);
-    
-    
+    res.json({});
 });
+
+module.exports = router;
