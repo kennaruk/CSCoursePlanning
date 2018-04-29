@@ -9,8 +9,19 @@ import {
 } from 'material-ui/Table';
 var semester_1 = require('./semester_1.json')
 var semester_2 = require('./semester_2.json')
+var hover = 'true'
 
 export class CScourse extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            multiSelectable: true,
+            fixedHeader: true,
+            enableSelectAll: false,
+            deselectOnClickaway: false,
+            showRowHover: true
+        }
+    }
     render() {
         const chkSemester = this.props.semester == 1 ? semester_1.map((item, i) => {
             if (item.courseId.includes("CS" + this.props.show))
@@ -36,15 +47,23 @@ export class CScourse extends React.Component {
         }) : null
         return (
             <div>
-                <Table>
-                    <TableHeader>
+                <Table
+                    fixedHeader={this.state.fixedHeader}
+                    multiSelectable={this.state.multiSelectable}
+                >
+                    <TableHeader
+                        enableSelectAll={this.state.enableSelectAll}
+                    >
                         <TableRow>
                             <TableHeaderColumn style={{ width: "4rem" }}>รหัสวิชา</TableHeaderColumn>
                             <TableHeaderColumn>ชื่อวิชา</TableHeaderColumn>
                             <TableHeaderColumn>เวลาเรียน</TableHeaderColumn>
                         </TableRow>
                     </TableHeader>
-                    <TableBody>
+                    <TableBody
+                        deselectOnClickaway={this.state.deselectOnClickaway}
+                        showRowHover={this.state.showRowHover}
+                    >
                         {chkSemester}
                         {console.log(this.props.semester)}
                     </TableBody>

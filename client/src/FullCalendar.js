@@ -21,7 +21,7 @@ class Calendar extends React.Component {
             height: 750,
             header: {
                 left: null,
-                center: 'title',
+                center: null,
                 right: null
             },
             defaultView: 'agendaWeek',

@@ -9,6 +9,7 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 import './css/TabSearch-style.css';
+import $ from 'jquery'
 
 
 var semester_1 = require('./semester_1.json')
@@ -24,13 +25,15 @@ const s2 = semester_2.map((item, i) => {
   arr2.push(item)
 })
 var arr_merge = arr1.concat(arr2)
-
+var arr_selectCouse = []
 
 
 
 class FilteredList extends React.Component {
   componentWillMount() {
-    this.setState({ items: this.state.initialItems })
+    this.setState({
+      items: this.state.initialItems
+    })
   }
 
   constructor(props) {
@@ -57,9 +60,9 @@ class FilteredList extends React.Component {
   render() {
     return (
       <div className="filter-list">
-        <input type="text"  id="input" className="Input-text" placeholder="Search by course id" onChange={this.filterList} />
+        <input type="text" id="input" className="Input-text" placeholder="Search by course id" onChange={this.filterList} />
         {/* {console.log(this.state.items)} */}
-        {console.log('props : ' + this.props.chksemester)}
+        {/* {console.log('props : ' + this.props.chksemester)} */}
         <List items={this.state.items} />
       </div>
     )
@@ -67,31 +70,67 @@ class FilteredList extends React.Component {
 }
 
 class List extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      multiSelectable: true,
+      fixedHeader: true,
+      enableSelectAll: false,
+      deselectOnClickaway: false,
+      showRowHover: true,
+      data: arr_merge,
+      dataTable: []
+    }
+  }
+
+  handleCourseTime = (value) => {
+    console.log(value)
+  }
+
+  _onRowSelection = (key) => {
+    const selectedRows = key.map(i => this.state.data[i].startTime);
+    console.log(selectedRows)
+
+    
+  }
+
   render() {
     return (
-      <div className='flow'> 
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHeaderColumn style={{ width: "4rem" }}>รหัสวิชา</TableHeaderColumn>
-            <TableHeaderColumn>ชื่อวิชา</TableHeaderColumn>
-            <TableHeaderColumn>เวลาเรียน</TableHeaderColumn>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {
-            this.props.items.map((item, i) => {
-              return (
-                <TableRow key={i}>
-                  <TableRowColumn style={{ width: "4rem" }}>{item.courseId}</TableRowColumn>
-                  <TableRowColumn>{item.courseName}</TableRowColumn>
-                  <TableRowColumn>{item.startTime} - {item.endTime}</TableRowColumn>
-                </TableRow>)
-            })
-          }
-          {console.log(this.props.items)}
-        </TableBody>
-      </Table>
+      <div className='flow'>
+        <Table
+          // fixedHeader={this.state.fixedHeader}
+          multiSelectable={this.state.multiSelectable}
+          // onCellClick={this._onRowSelection}
+          onRowSelection={this._onRowSelection}
+        >
+          <TableHeader
+            enableSelectAll={this.state.enableSelectAll}
+          >
+            <TableRow>
+              <TableHeaderColumn style={{ width: "4rem" }}>รหัสวิชา</TableHeaderColumn>
+              <TableHeaderColumn>ชื่อวิชา</TableHeaderColumn>
+              <TableHeaderColumn>เวลาเรียน</TableHeaderColumn>
+            </TableRow>
+          </TableHeader>
+          <TableBody
+            deselectOnClickaway={this.state.deselectOnClickaway}
+            showRowHover={this.state.showRowHover}
+          >
+            {
+              this.props.items.map((item, i) => {
+                return (
+                  <TableRow key={i}>
+                    <TableRowColumn style={{ width: "4rem" }}>{item.courseId}</TableRowColumn>
+                    <TableRowColumn>{item.courseName}</TableRowColumn>
+                    <TableRowColumn >{item.startTime} - {item.endTime}</TableRowColumn>
+                    {/* {console.log(this.state.data)} */}
+                  </TableRow>
+                )
+              })
+            }
+            {/* {console.log(this.props.items)} */}
+          </TableBody>
+        </Table>
       </div>
     )
   }
@@ -99,35 +138,10 @@ class List extends React.Component {
 
 
 export class TabSearch extends Component {
-  // state = {
-  //   dataSource: [],
-  //   list: semester_1
-  // };
-
-  // handleUpdateInput = (value) => {
-  //   this.setState({
-  //     dataSource: [
-  //       value.toUpperCase()
-  //     ],
-  //   });
-  // };
-
-
-
   render() {
     return (
-
       <div>
-        {/* <AutoComplete
-          hintText="Type course id"
-          dataSource={this.state.dataSource}
-          onUpdateInput={this.handleUpdateInput}
-          floatingLabelText="Search"
-          fullWidth={true}
-        /><br /> */}
         <FilteredList />
-        {/* {console.log(this.state.dataSource)}
-        {console.log(this.state.list)} */}
       </div>
     );
   }

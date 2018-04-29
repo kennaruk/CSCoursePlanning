@@ -16,7 +16,7 @@ const styles = {
 
 const style_btn = {
     margin: 10,
-    width: 220
+    width: '20%'
 }
 
 
@@ -86,11 +86,11 @@ export class TabCourse extends React.Component {
                     <Tab label="Search" value="a" onActive={this.toggleSearch}>
                         <div>
                             <TabSearch chksemester={this.props.semester}/>
-                            {console.log('tab couse props ' + this.props.semester)}
+                            {/* {console.log('tab couse props ' + this.props.semester)} */}
                         </div>
                     </Tab>
                     <Tab label="Course list" value="b" >
-                        <div>
+                        <div style={{width:'100%'}}>
                             <br />
                             <RaisedButton label="CS1xx" primary={true} style={style_btn} onClick={this.handleShowCs1} />
                             <RaisedButton label="CS2xx" primary={true} style={style_btn} onClick={this.handleShowCs2} />
