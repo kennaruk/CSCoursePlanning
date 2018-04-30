@@ -90,8 +90,6 @@ class List extends React.Component {
   _onRowSelection = (key) => {
     const selectedRows = key.map(i => this.state.data[i].startTime);
     console.log(selectedRows)
-
-    
   }
 
   render() {
