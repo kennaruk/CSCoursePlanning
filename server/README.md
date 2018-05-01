@@ -16,7 +16,9 @@ server will run on 2 ports
 * http on port 3500
 * https on port 4000
 
-*So you can test server with localhost:<3500/4000>*
+*So you can test server with <br>
+**http**://localhost:*3500* <br>
+**https**://localhost:*4000*
 
 **Second terminal (for MongoDB)**
 ```
