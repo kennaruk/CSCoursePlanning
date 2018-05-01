@@ -6,7 +6,7 @@ mongoose.connect(MONGODB_URI)
         console.log('MongoDB Connection Established. At', MONGODB_URI);
     })
     .catch(err => {
-        console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
+        console.log('MongoDB Connection At \'', MONGODB_URI, '\' Error. Please make sure that MongoDB is running.');
     });
 
 exports.Course   = require('./course.js')(mongoose);

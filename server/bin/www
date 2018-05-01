@@ -7,20 +7,38 @@
 var app = require('../app');
 var debug = require('debug')('cscourseplanning:server');
 var http = require('http');
-
+var https = require('https');
+var fs = require('fs');
+var path = require('path');
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || '4000');
-console.log('Api service listen on port:', port)
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var httpPort = 3500;
+var server = http.createServer(app).listen(httpPort);
+console.log('HTTP server listen on port:', httpPort);
+
+/**
+ * Create HTTPS server.
+ */
+
+var certPath = path.join(__dirname, '..', 'credentials', 'cert.pem');
+var keyPath = path.join(__dirname, '..', 'credentials', 'key.pem');
+
+var privateKey = fs.readFileSync(keyPath, 'utf8');
+var certificate = fs.readFileSync(certPath, 'utf8');
+var server = https.createServer({
+  key: privateKey,
+  cert: certificate
+}, app);
+console.log('HTTPS server listen on port:', port);
 
 /**
  * Listen on provided port, on all network interfaces.

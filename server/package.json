@@ -11,12 +11,15 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "fs": "^0.0.1-security",
+    "https": "^1.0.0",
     "jade": "~1.11.0",
     "joi": "^13.2.0",
     "joigoose": "^4.0.0",
     "moment": "^2.22.1",
     "mongoose": "^5.0.15",
     "morgan": "~1.8.1",
+    "path": "^0.12.7",
     "serve-favicon": "~2.4.2"
   }
 }
