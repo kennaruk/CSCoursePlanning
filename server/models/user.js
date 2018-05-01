@@ -5,6 +5,7 @@ module.exports = function(mongoose) {
     var joiUserSchema = Joi.object({
         name: Joi.string(),
         surname: Joi.string(),
+        email: Joi.string().email(),
         username: Joi.string(),
         password: Joi.string(),
         schedule: Joi.array()

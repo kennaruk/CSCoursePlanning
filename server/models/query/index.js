@@ -23,9 +23,46 @@ exports.getCourseBySemester = (semester, cb) => {
 exports.addUserByEmailAndPassword = (params, cb) => {
     let email = params.email;
     let password = params.password;
+    let name = params.name;
+    let surname = params.surname;
+
 
     bcrypt.hash(password, saltRounds, (err, hash) => {
+        if(err)
+            cb(err);
+        else {
+            let user = new User();
+            user.name = name;
+            user.surname = surname;
+            user.email = email;
+            user.username = email.split('@')[0];
+            user.password = hash;
+            user.save();
+            cb(err);
+        }
+    });
+}
 
+exports.getUserByEmailAndPassword = (params, cb) => {
+    let usernameOrEmail = params.usernameOrEmail;
+    let password        = params.password;
+
+    User.findOne({email: usernameOrEmail}, (err, user) => {
+        if(!user) {
+            User.findOne({username: usernameOrEmail.split('@')[0]}, (err, user) => {
+                if(!user)
+                    cb(err, null);
+                else
+                    if(bcrypt.compareSync(user.password, password))
+                        cb(err, user);
+                    else
+                        cb(err, null);
+            });
+        } else 
+            if(bcrypt.compareSync(user.password, password))
+                cb(err, user);
+            else
+                cb(err, null);
     });
 }
 
