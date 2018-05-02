@@ -65,7 +65,7 @@ class FilteredList extends React.Component {
         <input type="text" id="input" className="Input-text" placeholder="Search by course id" onChange={this.filterList} />
         {/* {console.log(this.state.items)} */}
         {/* {console.log('props : ' + this.props.chksemester)} */}
-        <List items={this.state.items} test={this.props.test} />
+        <List items={this.state.items} selectRowsCourse={this.props.selectRowsCourse} />
       </div>
     )
   }
@@ -90,11 +90,11 @@ class List extends React.Component {
   }
 
   _onRowSelection = (key) => {
-    const selectedRows = key.map(i => this.state.data[i].startTime);
-    console.log(selectedRows)
+    const selectStartTime = key.map(i => this.state.data[i].startTime);
+    const selectCourseId = key.map(i => this.state.data[i].courseId)
+    // console.log(selectedRows)
     
-    // console.log(this.props.test(selectedRows))
-    this.props.test(selectedRows)
+    this.props.selectRowsCourse(selectCourseId)
 
 
 
@@ -146,7 +146,7 @@ export class TabSearch extends Component {
   render() {
     return (
       <div>
-        <FilteredList test={this.props.test} />
+        <FilteredList selectRowsCourse={this.props.selectRowsCourse} />
         {/* <FullCalendar /> */}
       </div>
     );

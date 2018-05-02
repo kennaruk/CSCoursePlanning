@@ -10,12 +10,15 @@ import { FullCalendar } from './FullCalendar.js'
 
 import './css/calendar-style.css';
 
+var arr = []
+
 export class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             value: 0,
-            semester: 0
+            semester: 0,
+            test: []
         };
     }
 
@@ -41,8 +44,16 @@ export class Header extends React.Component {
         })
     }
 
+    selectRowsCourse = (i) => {
+        // console.log(i)
+        this.setState({
+            test: i
+        })
+        // console.log(this.state.test)
+    }
+
     render() {
-        const chk = this.state.value !== 0 ? <FullCalendar /> : null
+        const chk = this.state.value !== 0 ? <div> <h1>Time Table</h1><FullCalendar selectCourselists={this.state.test} /> </div> : null
 
         return (
             <div>
@@ -59,17 +70,18 @@ export class Header extends React.Component {
                         <MenuItem value={4} primaryText="ปี 4" />
                     </DropDownMenu>
                     <DropDownMenu value={this.state.value} onChange={this.handleChange}>
-                        <MenuItem value={0} primaryText="ภาคเรียน" onClick={this.handleSemester0}/>
+                        <MenuItem value={0} primaryText="ภาคเรียน" onClick={this.handleSemester0} />
                         <MenuItem value={1} primaryText="ภาคเรียนที่ 1" onClick={this.handleSemester1} />
-                        <MenuItem value={2} primaryText="ภาคเรียนที่ 2" onClick={this.handleSemester2}/>
+                        <MenuItem value={2} primaryText="ภาคเรียนที่ 2" onClick={this.handleSemester2} />
                     </DropDownMenu>
                 </div>
                 <div style={{ width: "60%", float: "left", margin: "10px" }}>
+
                     {chk}
                 </div>
                 <div style={{ width: "35%", float: "left", margin: "20px" }}>
                     {/* <h3>Course</h3> */}
-                    <TabCourse semester={this.state.semester} />
+                    <TabCourse semester={this.state.semester} selectRowsCourse={this.selectRowsCourse} />
                     <br />
                 </div>
             </div >
