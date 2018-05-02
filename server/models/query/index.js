@@ -28,6 +28,7 @@ exports.addUserByEmailAndPassword = (params, cb) => {
 
 
     bcrypt.hash(password, saltRounds, (err, hash) => {
+        console.log('addUserByEmailPassword hash:', hash)
         if(err)
             cb(err);
         else {
@@ -37,8 +38,13 @@ exports.addUserByEmailAndPassword = (params, cb) => {
             user.email = email;
             user.username = email.split('@')[0];
             user.password = hash;
-            user.save();
-            cb(err);
+            user.save().then(() => {
+                //TODO: set Time out when connection off
+                console.log(err)
+                cb(err);
+            }).catch((err) => {
+                cb(err);
+            });
         }
     });
 }

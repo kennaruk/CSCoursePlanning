@@ -49,6 +49,7 @@ router.post('/register', (req, res, next) => {
     };
 
     todb.addUserByEmailAndPassword(payload, (err) => {
+        console.log('addUser callback')
         if(err)
             res.json({
                 success: false,
@@ -68,6 +69,7 @@ router.post('/login', (req, res, next) => {
         password:        req.body.password
     };
     todb.getUserByEmailAndPassword(payload, (err, user) => {
+        console.log(err)
         if(!err)
             res.json({
                 success: true,
