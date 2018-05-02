@@ -10,6 +10,8 @@ import {
 } from 'material-ui/Table';
 import './css/TabSearch-style.css';
 import $ from 'jquery'
+import { FullCalendar } from './FullCalendar.js'
+
 
 
 var semester_1 = require('./semester_1.json')
@@ -63,7 +65,7 @@ class FilteredList extends React.Component {
         <input type="text" id="input" className="Input-text" placeholder="Search by course id" onChange={this.filterList} />
         {/* {console.log(this.state.items)} */}
         {/* {console.log('props : ' + this.props.chksemester)} */}
-        <List items={this.state.items} />
+        <List items={this.state.items} test={this.props.test} />
       </div>
     )
   }
@@ -90,15 +92,20 @@ class List extends React.Component {
   _onRowSelection = (key) => {
     const selectedRows = key.map(i => this.state.data[i].startTime);
     console.log(selectedRows)
+    
+    // console.log(this.props.test(selectedRows))
+    this.props.test(selectedRows)
+
+
+
   }
+
 
   render() {
     return (
       <div className='flow'>
         <Table
-          // fixedHeader={this.state.fixedHeader}
           multiSelectable={this.state.multiSelectable}
-          // onCellClick={this._onRowSelection}
           onRowSelection={this._onRowSelection}
         >
           <TableHeader
@@ -139,7 +146,8 @@ export class TabSearch extends Component {
   render() {
     return (
       <div>
-        <FilteredList />
+        <FilteredList test={this.props.test} />
+        {/* <FullCalendar /> */}
       </div>
     );
   }

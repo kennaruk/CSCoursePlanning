@@ -73,6 +73,10 @@ export class TabCourse extends React.Component {
         })
     }
 
+    test = (i) => {
+        console.log(i)
+    }
+
 
     render() {
 
@@ -85,7 +89,7 @@ export class TabCourse extends React.Component {
                 >
                     <Tab label="Search" value="a" onActive={this.toggleSearch}>
                         <div>
-                            <TabSearch chksemester={this.props.semester}/>
+                            <TabSearch chksemester={this.props.semester} test={this.test}/>
                             {/* {console.log('tab couse props ' + this.props.semester)} */}
                         </div>
                     </Tab>
