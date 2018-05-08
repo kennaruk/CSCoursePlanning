@@ -10,7 +10,7 @@ import { FullCalendar } from './FullCalendar.js'
 
 import './css/calendar-style.css';
 
-var arr = []
+var arrSelect = []
 
 export class Header extends React.Component {
     constructor(props) {
@@ -18,8 +18,17 @@ export class Header extends React.Component {
         this.state = {
             value: 0,
             semester: 0,
-            test: []
+            test: [],
+            courses: [],
         };
+    }
+
+    onUpdateCourse = (courseJSON) => {
+        this.setState({
+            courses: courseJSON
+        }, () => {
+            // console.log('header :',this.state.courses)
+        });
     }
 
     handleChange = (event, index, value) => {
@@ -45,15 +54,13 @@ export class Header extends React.Component {
     }
 
     selectRowsCourse = (i) => {
-        // console.log(i)
-        this.setState({
-            test: i
-        })
-        // console.log(this.state.test)
+        console.log(i)
+
+
     }
 
     render() {
-        const chk = this.state.value !== 0 ? <div> <h1>Time Table</h1><FullCalendar selectCourselists={this.state.test} /> </div> : null
+        // const chk = this.state.value !== 0 ? <div> <h1>Time Table</h1><FullCalendar selectCourselists={this.state.test} courses={this.state.courses}/> </div> : null
 
         return (
             <div>
@@ -76,12 +83,13 @@ export class Header extends React.Component {
                     </DropDownMenu>
                 </div>
                 <div style={{ width: "60%", float: "left", margin: "10px" }}>
-
-                    {chk}
+                    <h1>Time Table</h1>
+                    <FullCalendar selectCourselists={this.state.test} courses={this.state.courses} />
+                    {/* {chk} */}
                 </div>
                 <div style={{ width: "35%", float: "left", margin: "20px" }}>
                     {/* <h3>Course</h3> */}
-                    <TabCourse semester={this.state.semester} selectRowsCourse={this.selectRowsCourse} />
+                    <TabCourse semester={this.state.semester} onUpdateCourse={this.onUpdateCourse} />
                     <br />
                 </div>
             </div >

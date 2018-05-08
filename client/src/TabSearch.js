@@ -27,7 +27,7 @@ const s2 = semester_2.map((item, i) => {
   arr2.push(item)
 })
 var arr_merge = arr1.concat(arr2)
-var arr_selectCouse = []
+// var arr_selectCouse = []
 
 
 
@@ -63,9 +63,7 @@ class FilteredList extends React.Component {
     return (
       <div className="filter-list">
         <input type="text" id="input" className="Input-text" placeholder="Search by course id" onChange={this.filterList} />
-        {/* {console.log(this.state.items)} */}
-        {/* {console.log('props : ' + this.props.chksemester)} */}
-        <List items={this.state.items} selectRowsCourse={this.props.selectRowsCourse} />
+        <List items={this.state.items} onUpdateCourse={this.props.onUpdateCourse} />
       </div>
     )
   }
@@ -81,7 +79,8 @@ class List extends React.Component {
       deselectOnClickaway: false,
       showRowHover: true,
       data: arr_merge,
-      dataTable: []
+      dataTable: [],
+      selectedRows: []
     }
   }
 
@@ -90,14 +89,35 @@ class List extends React.Component {
   }
 
   _onRowSelection = (key) => {
-    const selectStartTime = key.map(i => this.state.data[i].startTime);
-    const selectCourseId = key.map(i => this.state.data[i].courseId)
-    // console.log(selectedRows)
-    
-    this.props.selectRowsCourse(selectCourseId)
-
-
-
+    // console.log('a')
+    // console.log('key:', key[0])
+    // console.log('key:', key)
+    this.setState({
+      selectedRows: key
+    }, () => {
+      // console.log('selectedRow:', this.state.selectedRows)
+      let obj = [];
+      for(let i = 0 ; i <= key.length ; i++) {
+        if(i === key.length) {
+          // console.log('i:',i,'obj:',obj)
+          this.props.onUpdateCourse(obj)
+          break;
+        }
+        obj.push({
+          // selectCouese: this.state.data[key[i]]
+          selectCourseId: this.state.data[key[i]].courseId,
+          selectStartTime: this.state.data[key[i]].startTime,
+          selectEndTime: this.state.data[key[i]].endTime,
+          selectDays: this.state.data[key[i]].days,
+          indexRow: key[i]
+        });
+        // console.log('i:',i,'obj:',obj)
+      }
+      // let obj = key.map(i => {
+      //   return 
+      // });
+      
+    });
   }
 
 
@@ -124,7 +144,7 @@ class List extends React.Component {
             {
               this.props.items.map((item, i) => {
                 return (
-                  <TableRow key={i}>
+                  <TableRow key={i} selected={this.state.selectedRows.indexOf(i) !== -1}>
                     <TableRowColumn style={{ width: "4rem" }}>{item.courseId}</TableRowColumn>
                     <TableRowColumn>{item.courseName}</TableRowColumn>
                     <TableRowColumn >{item.startTime} - {item.endTime}</TableRowColumn>
@@ -146,7 +166,7 @@ export class TabSearch extends Component {
   render() {
     return (
       <div>
-        <FilteredList selectRowsCourse={this.props.selectRowsCourse} />
+        <FilteredList onUpdateCourse={this.props.onUpdateCourse} />
         {/* <FullCalendar /> */}
       </div>
     );

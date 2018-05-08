@@ -89,7 +89,7 @@ export class TabCourse extends React.Component {
                 >
                     <Tab label="Search" value="a" onActive={this.toggleSearch}>
                         <div>
-                            <TabSearch chksemester={this.props.semester} selectRowsCourse={this.props.selectRowsCourse}/>
+                            <TabSearch chksemester={this.props.semester} onUpdateCourse={this.props.onUpdateCourse}/>
                             {/* {console.log('tab couse props ' + this.props.semester)} */}
                         </div>
                     </Tab>
