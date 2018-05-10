@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AutoComplete from 'material-ui/AutoComplete';
 import {
   Table,
   TableBody,
@@ -9,26 +8,20 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 import './css/TabSearch-style.css';
-import $ from 'jquery'
-import { FullCalendar } from './FullCalendar.js'
-
-
 
 var semester_1 = require('./semester_1.json')
 var semester_2 = require('./semester_2.json')
 
 var arr1 = []
 var arr2 = []
-const s1 = semester_1.map((item, i) => {
+semester_1.map((item, i) => {
   arr1.push(item)
 })
 
-const s2 = semester_2.map((item, i) => {
+semester_2.map((item, i) => {
   arr2.push(item)
 })
 var arr_merge = arr1.concat(arr2)
-// var arr_selectCouse = []
-
 
 
 class FilteredList extends React.Component {
@@ -44,9 +37,7 @@ class FilteredList extends React.Component {
       initialItems: arr_merge,
       items: [],
     }
-    // this.filterList = this.filterList.bind(this)
   }
-
 
   filterList = (event) => {
     var updatedList = this.state.initialItems;
@@ -79,27 +70,17 @@ class List extends React.Component {
       deselectOnClickaway: false,
       showRowHover: true,
       data: arr_merge,
-      dataTable: [],
       selectedRows: []
     }
   }
 
-  handleCourseTime = (value) => {
-    console.log(value)
-  }
-
   _onRowSelection = (key) => {
-    // console.log('a')
-    // console.log('key:', key[0])
-    // console.log('key:', key)
     this.setState({
       selectedRows: key
     }, () => {
-      // console.log('selectedRow:', this.state.selectedRows)
       let obj = [];
-      for(let i = 0 ; i <= key.length ; i++) {
-        if(i === key.length) {
-          // console.log('i:',i,'obj:',obj)
+      for (let i = 0; i <= key.length; i++) {
+        if (i === key.length) {
           this.props.onUpdateCourse(obj)
           break;
         }
@@ -109,14 +90,12 @@ class List extends React.Component {
           selectStartTime: this.state.data[key[i]].startTime,
           selectEndTime: this.state.data[key[i]].endTime,
           selectDays: this.state.data[key[i]].days,
+          selected: key.select,
           indexRow: key[i]
         });
+        console.log(obj)
         // console.log('i:',i,'obj:',obj)
       }
-      // let obj = key.map(i => {
-      //   return 
-      // });
-      
     });
   }
 
@@ -167,7 +146,6 @@ export class TabSearch extends Component {
     return (
       <div>
         <FilteredList onUpdateCourse={this.props.onUpdateCourse} />
-        {/* <FullCalendar /> */}
       </div>
     );
   }

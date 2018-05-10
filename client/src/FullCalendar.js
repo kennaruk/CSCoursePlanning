@@ -14,9 +14,6 @@ export class FullCalendar extends React.Component {
     }
 }
 
-/*
- * A simple React component
- */
 class Calendar extends React.Component {
     componentDidMount() {
         $('#calendar').fullCalendar({
@@ -25,11 +22,7 @@ class Calendar extends React.Component {
             slotLabelFormat: "HH:mm",
             allDaySlot: false,
             footer: true,
-            views: {
-                week: {
-                    columnFormat: 'ddd'
-                }
-            },
+            columnFormat: 'ddd',
             header: {
                 left: null,
                 center: null,
@@ -52,12 +45,7 @@ class Calendar extends React.Component {
 
 
     componentDidUpdate() {
-        // const chk = []
-        const arr = this.props.courses.map((event, index) => {
-            // chk.push(event.selectCourseId)
-            console.log(typeof(this.props.courses[index].selectCourseId))
-            console.log(typeof(event.selectCourseId))
-            // if(isInArray(event.selectCourseId, [1,2,3]))
+        this.props.courses.map((event, index) => {
             $('#calendar').fullCalendar('renderEvent', {
                 id: index,
                 title: event.selectCourseId,
@@ -66,25 +54,20 @@ class Calendar extends React.Component {
                 allDay: false,
                 editable: false
             });
+
         })
     }
 
-   
-    onClickReset = () => {
-        console.log('calendar ', this.props.courses)
-        const arr = this.props.courses.map((event, index) => {
+    componentWillReceiveProps() {
+        this.props.courses.map((event, index) => {
             $('#calendar').fullCalendar('removeEvents', index);
         })
-
     }
-
-    // TODO : REMOVE after Checked out
 
     render() {
         return (
             <div>
                 <div id="calendar"></div>
-                <button onClick={this.onClickReset}>reset</button>
             </div>
         );
     }

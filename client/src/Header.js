@@ -2,15 +2,14 @@ import React from 'react'
 import AppBar from 'material-ui/AppBar';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
-import $ from 'jquery'
-import fullcalendar from 'fullcalendar'
-import moment from 'moment'
 import { TabCourse } from './TabCourse.js'
 import { FullCalendar } from './FullCalendar.js'
+import RaisedButton from 'material-ui/RaisedButton';
+import Drawer from 'material-ui/Drawer';
+
 
 import './css/calendar-style.css';
 
-var arrSelect = []
 
 export class Header extends React.Component {
     constructor(props) {
@@ -20,6 +19,7 @@ export class Header extends React.Component {
             semester: 0,
             test: [],
             courses: [],
+            openDrawer: false
         };
     }
 
@@ -33,31 +33,19 @@ export class Header extends React.Component {
 
     handleChange = (event, index, value) => {
         this.setState({ value });
+        console.log(this.state)
     }
 
-    handleSemester0 = () => {
-        this.setState({
-            semester: 0
-        })
-    }
 
-    handleSemester1 = () => {
-        this.setState({
-            semester: 1
-        })
-    }
+    handleSemester0 = () => this.setState({ semester: 0 })
 
-    handleSemester2 = () => {
-        this.setState({
-            semester: 2
-        })
-    }
+    handleSemester1 = () => this.setState({ semester: 1 })
 
-    selectRowsCourse = (i) => {
-        console.log(i)
+    handleSemester2 = () => this.setState({ semester: 2 })
 
-
-    }
+    // Handle Drawer 
+    handleToggle = () => this.setState({ openDrawer: true });
+    handleClose = () => this.setState({ openDrawer: false });
 
     render() {
         // const chk = this.state.value !== 0 ? <div> <h1>Time Table</h1><FullCalendar selectCourselists={this.state.test} courses={this.state.courses}/> </div> : null
@@ -66,7 +54,18 @@ export class Header extends React.Component {
             <div>
                 <AppBar
                     title="Course Management"
+                    iconElementRight={<RaisedButton label="Login" style={{ margin: 7 }} />}
+                    onLeftIconButtonClick={this.handleToggle}
                 />
+                <Drawer
+                    docked={false}
+                    width={200}
+                    open={this.state.openDrawer}
+                    onRequestChange={(open) => this.setState({ open })}
+                >
+                    <MenuItem onClick={this.handleClose}>Back</MenuItem>
+                    <MenuItem onClick={this.handleClose}>About me</MenuItem>
+                </Drawer>
 
                 <div>
                     <DropDownMenu value={this.state.value} onChange={this.handleChange}>
@@ -77,7 +76,7 @@ export class Header extends React.Component {
                         <MenuItem value={4} primaryText="ปี 4" />
                     </DropDownMenu>
                     <DropDownMenu value={this.state.value} onChange={this.handleChange}>
-                        <MenuItem value={0} primaryText="ภาคเรียน" onClick={this.handleSemester0} />
+                        <MenuItem value={0} primaryText="ภาคเรียน" onChange={this.handleSemester0} />
                         <MenuItem value={1} primaryText="ภาคเรียนที่ 1" onClick={this.handleSemester1} />
                         <MenuItem value={2} primaryText="ภาคเรียนที่ 2" onClick={this.handleSemester2} />
                     </DropDownMenu>

@@ -9,7 +9,7 @@ import {
 } from 'material-ui/Table';
 var semester_1 = require('./semester_1.json')
 var semester_2 = require('./semester_2.json')
-var hover = 'true'
+
 
 export class CScourse extends React.Component {
     constructor(props) {
