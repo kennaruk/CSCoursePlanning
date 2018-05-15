@@ -33,7 +33,7 @@ export class TabCourse extends React.Component {
     }
 
     render() {
-        const chk = this.state.showCourse === 0 ? null : <CScourse show={this.state.showCourse} semester={this.props.semester} />
+        const chk = this.state.showCourse === 0 ? null : <CScourse show={this.state.showCourse} semester={this.props.semester} onUpdateCourse={this.props.onUpdateCourse} />
         return (
             <div>
                 <Tabs>

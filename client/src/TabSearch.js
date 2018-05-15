@@ -75,6 +75,7 @@ class List extends React.Component {
   }
 
   _onRowSelection = (key) => {
+    console.log('key', key.length)
     this.setState({
       selectedRows: key
     }, () => {
@@ -90,10 +91,11 @@ class List extends React.Component {
           selectStartTime: this.state.data[key[i]].startTime,
           selectEndTime: this.state.data[key[i]].endTime,
           selectDays: this.state.data[key[i]].days,
-          selected: key.select,
-          indexRow: key[i]
+          selectCredit: this.state.data[key[i]].credit,
+          // selected: key.select,
+          // indexRow: key[i]
         });
-        console.log(obj)
+        // console.log(obj)
         // console.log('i:',i,'obj:',obj)
       }
     });
