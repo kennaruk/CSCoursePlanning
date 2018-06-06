@@ -5,17 +5,9 @@ import fullcalendar from 'fullcalendar'
 import moment from 'moment'
 
 
+var dayColor = ''
+
 export class FullCalendar extends React.Component {
-
-    render() {
-        return (
-            <div>
-                <Calendar courses={this.props.courses} />
-            </div>);
-    }
-}
-
-class Calendar extends React.Component {
     componentDidMount() {
         $('#calendar').fullCalendar({
             // height: 750,  
@@ -33,32 +25,31 @@ class Calendar extends React.Component {
             editable: true,
             minTime: "07:00:00",
             maxTime: "19:00:00",
-            eventColor: '#1fbcd3'
+            eventBorderColor: '#FFFFFF'
         })
 
     }
 
-    // setState in componentDidUpdate ?
+    // add event to calendar when selected row
     componentDidUpdate() {
         var sumCredit = 0
+        // check remain credit
         for (let i = 0; i < Object.keys(this.props.courses).length; i++) {
             sumCredit += this.props.courses[i].selectCredit
         }
-        // console.log(sumCredit)
-        if (sumCredit <= 21) {
 
+        if (sumCredit <= 21) {
             this.props.courses.map((event, index) => {
                 var findDay = 0
                 event.selectDays.map((data, index) => {
-                    console.log(data)
                     switch (data) {
-                        case 'Mon': findDay = 1; break;
-                        case 'Tue': findDay = 2; break;
-                        case 'Wed': findDay = 3; break;
-                        case 'Thu': findDay = 4; break;
-                        case 'Fri': findDay = 5; break;
-                        case 'Sat': findDay = 6; break;
-                        case 'Sun': findDay = 0; break;
+                        case 'Mon': findDay = 1; dayColor = '#ffdd05'; break;
+                        case 'Tue': findDay = 2; dayColor = '#ffa0ce'; break;
+                        case 'Wed': findDay = 3; dayColor = '#78a339'; break;
+                        case 'Thu': findDay = 4; dayColor = '#f7a120'; break;
+                        case 'Fri': findDay = 5; dayColor = '#3189d6'; break;
+                        case 'Sat': findDay = 6; dayColor = '#8b1dad'; break;
+                        case 'Sun': findDay = 0; dayColor = '#db291c'; break;
                         default: break;
                     }
                     var day = moment().day(findDay).format('YYYY-MM-DD')
@@ -69,6 +60,7 @@ class Calendar extends React.Component {
                         end: day + 'T' + event.selectEndTime,
                         allDay: false,
                         editable: false,
+                        backgroundColor: dayColor,
                     });
                 })
             })
@@ -77,6 +69,7 @@ class Calendar extends React.Component {
         }
     }
 
+    // Remove event from calendar when unselected row
     componentWillReceiveProps() {
         this.props.courses.map((event, index) => {
             event.selectDays.map((data, index) => {

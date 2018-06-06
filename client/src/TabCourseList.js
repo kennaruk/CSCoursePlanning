@@ -22,7 +22,7 @@ semester_2.map((item, i) => {
 var arr_merge = arr1.concat(arr2)
 
 
-export class CScourse extends React.Component {
+export class TabCourseList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -38,55 +38,52 @@ export class CScourse extends React.Component {
     }
 
     _onRowSelection = (key) => {
-
         this.setState({
-            selectedRows: key
+          selectedRows: key
         }, () => {
-            let obj = [];
-            for (let i = 0; i <= key.length; i++) {
-                if (i === key.length) {
-                    this.props.onUpdateCourse(obj)
-                    break;
-                }
-                // console.log(this.state.selectedRows)
-                obj.push({
-                    // selectCouese: this.state.data[key[i]]
-                    selectCourseId: this.state.data[key[i]].courseId,
-                    selectStartTime: this.state.data[key[i]].startTime,
-                    selectEndTime: this.state.data[key[i]].endTime,
-                    selectDays: this.state.data[key[i]].days,
-                    selected: key.select,
-                    indexRow: key[i]
-                });
-                // console.log(obj)
-                // console.log('i:',i,'obj:',obj)
+          let obj = [];
+          for (let i = 0; i <= key.length; i++) {
+            if (i === key.length) {
+              this.props.onUpdateCourse(obj)
+              break;
             }
+            obj.push({
+              selectCourseId: this.state.data[key[i]].courseId,
+              selectStartTime: this.state.data[key[i]].startTime,
+              selectEndTime: this.state.data[key[i]].endTime,
+              selectDays: this.state.data[key[i]].days,
+              selectCredit: this.state.data[key[i]].credit,
+            });
+            // console.log('i:',i,'obj:',obj)
+          }
         });
-    }
+      }
 
     render() {
-        const chkSemester = this.props.semester == 1 ? semester_1.map((item, i) => {
+        // chkSemester: check semester 1 or semester 1 for show course in that semester
+        const chkSemester = this.props.semester === 1 ? semester_1.map((item, i) => {
             if (item.courseId.includes("CS" + this.props.show))
                 return (
-                    <TableRow key={i}>
+                    <TableRow key={i} selected={this.state.selectedRows.indexOf(i) !== -1}>
                         <TableRowColumn style={{ width: "4rem" }} >{item.courseId}</TableRowColumn>
                         <TableRowColumn>{item.courseName}</TableRowColumn>
                         <TableRowColumn>{item.startTime} - {item.endTime}</TableRowColumn>
                     </TableRow>
                 )
-        }) : this.props.semester == 2 ? semester_2.map((item, i) => {
-            if (this.props.show == 0) {
+        }) : this.props.semester === 2 ? semester_2.map((item, i) => {
+            if (this.props.show === 0) {
                 return null
             }
             if (item.courseId.includes("CS" + this.props.show))
                 return (
-                    <TableRow key={i}>
+                    <TableRow key={i} selected={this.state.selectedRows.indexOf(i) !== -1}>
                         <TableRowColumn style={{ width: "4rem" }} >{item.courseId}</TableRowColumn>
                         <TableRowColumn>{item.courseName}</TableRowColumn>
                         <TableRowColumn>{item.startTime} - {item.endTime}</TableRowColumn>
                     </TableRow>
                 )
         }) : null
+
         return (
             <div>
                 <Table
@@ -108,7 +105,7 @@ export class CScourse extends React.Component {
                         showRowHover={this.state.showRowHover}
                     >
                         {chkSemester}
-                        {/* {console.log(this.props.semester)} */}
+
                     </TableBody>
                 </Table>
             </div>

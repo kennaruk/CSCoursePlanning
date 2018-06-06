@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Table,
   TableBody,
@@ -23,8 +23,8 @@ semester_2.map((item, i) => {
 })
 var arr_merge = arr1.concat(arr2)
 
-
-class FilteredList extends React.Component {
+// Filter course
+export class TabFilterList extends React.Component {
   componentWillMount() {
     this.setState({
       items: this.state.initialItems
@@ -60,6 +60,7 @@ class FilteredList extends React.Component {
   }
 }
 
+// Show list OR show list after filter 
 class List extends React.Component {
   constructor(props) {
     super(props)
@@ -75,27 +76,32 @@ class List extends React.Component {
   }
 
   _onRowSelection = (key) => {
-    console.log('key', key.length)
     this.setState({
       selectedRows: key
     }, () => {
       let obj = [];
+      let chkPrerequisite = []
       for (let i = 0; i <= key.length; i++) {
         if (i === key.length) {
           this.props.onUpdateCourse(obj)
           break;
         }
-        obj.push({
-          // selectCouese: this.state.data[key[i]]
-          selectCourseId: this.state.data[key[i]].courseId,
-          selectStartTime: this.state.data[key[i]].startTime,
-          selectEndTime: this.state.data[key[i]].endTime,
-          selectDays: this.state.data[key[i]].days,
-          selectCredit: this.state.data[key[i]].credit,
-          // selected: key.select,
-          // indexRow: key[i]
-        });
-        // console.log(obj)
+
+        // check prerequisite from selected row
+        if ((this.state.data[key[i]].prerequisite.some(i => chkPrerequisite.indexOf(i) < 0))) {
+          alert('required : ' + this.state.data[key[i]].prerequisite + ' !')
+          break;
+        } else {
+          obj.push({
+            selectCourseId: this.state.data[key[i]].courseId,
+            selectStartTime: this.state.data[key[i]].startTime,
+            selectEndTime: this.state.data[key[i]].endTime,
+            selectDays: this.state.data[key[i]].days,
+            selectCredit: this.state.data[key[i]].credit,
+            selectPrerequisite: this.state.data[key[i]].prerequisite
+          });
+        }
+        chkPrerequisite.push(this.state.data[key[i]].courseId)
         // console.log('i:',i,'obj:',obj)
       }
     });
@@ -129,26 +135,13 @@ class List extends React.Component {
                     <TableRowColumn style={{ width: "4rem" }}>{item.courseId}</TableRowColumn>
                     <TableRowColumn>{item.courseName}</TableRowColumn>
                     <TableRowColumn >{item.startTime} - {item.endTime}</TableRowColumn>
-                    {/* {console.log(this.state.data)} */}
                   </TableRow>
                 )
               })
             }
-            {/* {console.log(this.props.items)} */}
           </TableBody>
         </Table>
       </div>
     )
-  }
-}
-
-
-export class TabSearch extends Component {
-  render() {
-    return (
-      <div>
-        <FilteredList onUpdateCourse={this.props.onUpdateCourse} />
-      </div>
-    );
   }
 }
