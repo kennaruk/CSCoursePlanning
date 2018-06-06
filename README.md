@@ -21,7 +21,7 @@
 ## BUG
 - หลังเช็ค prerequisite เสร็จแล้ว ถึงแม้จะถูก และไม่ขึ้นใน calendar แต่ปุ่มยังถูก selected อยู่
 
-Test case | Expedted | Actual
+Test case | Expected | Actual
 --- | --- | ---
 คลิ๊กเลือกแถว CS213 | ขึ้น alert และ row ไม่ถูก selected | ขึ้น alert แต่ row __ถูก__ selected
 
@@ -29,7 +29,7 @@ Test case | Expedted | Actual
 - หลังจากที่ serach by course id แล้ว select จะเกิดบัคคือของจะถูกหยิบมาผิด เหมือนก่อนที่จะ serach
 (น่าจะเพราะเรียงตามแถว จากฟังก์ชั่น _onRowSelection ที่เอาแถวที่เลือก(key)เป็น index ของวิชา)
 
-Test case | Expedted | Actual
+Test case | Expected | Actual
 --- | --- | ---
 เสิร์ชว่า CS211 | กดเลือก CS211 แล้ว add event CS211 ใน Calendar | กดเลือก CS211 แล้ว add event __CS101__ ใน Calendar
 
