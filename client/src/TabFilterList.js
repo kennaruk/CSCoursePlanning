@@ -87,7 +87,7 @@ class List extends React.Component {
           break;
         }
 
-        // check prerequisite from selected row.
+        // check prerequisite from selected row
         if ((this.state.data[key[i]].prerequisite.some(i => chkPrerequisite.indexOf(i) < 0))) {
           alert('required : ' + this.state.data[key[i]].prerequisite + ' !')
           this.setState({

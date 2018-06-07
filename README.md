@@ -25,7 +25,7 @@
 
 Test case | Expedted | Actual
 --- | --- | ---
-คลิ๊กเลือก CS111<br> จากนั้นคลิ๊กเลือก CS213  | ขึ้น alert และ row CS213 ไม่ถูก select <br> แต่ row CS111 ยัง select เหมือนเดิม | ขึ้น alert และ row CS213 ไม่ถูก select <br> แต่ row CS111 __ไม่ถูก select__ เหมือนเดิม
+คลิ๊กเลือก CS111<br>จากนั้นคลิ๊กเลือก CS213  | ขึ้น alert และ row CS213 ไม่ถูก select <br> แต่ row CS111 ยัง select เหมือนเดิม | ขึ้น alert และ row CS213 ไม่ถูก select <br> แต่ row CS111 __ไม่ถูก select__ เหมือนเดิม
 
 ---
 - หลังจากที่ serach by course id แล้ว select จะเกิดบัคคือของจะถูกหยิบมาผิด เหมือนก่อนที่จะ serach
