@@ -13,17 +13,19 @@
 - เช็คหน่วยกิตไม่เกิน 21
 - วิชาเรียนก่อนหน้า (prerequisite)
 - ใส่สีตามวัน ให้ดูง่าย
+- แก้บัค ```หลังเช็ค prerequisite เสร็จแล้ว ถึงแม้จะถูก และไม่ขึ้นใน calendar แต่ปุ่มยังถูก selected อยู่```
 
 ## NOT DONE
 - Overlap วิชาที่ทับกัน
 - Save button สำหรับเซฟตารางเรียน
+- ต่อ API
 
 ## BUG
 - หลังเช็ค prerequisite เสร็จแล้ว ถึงแม้จะถูก และไม่ขึ้นใน calendar แต่ปุ่มยังถูก selected อยู่
 
 Test case | Expedted | Actual
 --- | --- | ---
-คลิ๊กเลือกแถว CS213 | ขึ้น alert และ row ไม่ถูก selected | ขึ้น alert แต่ row __ถูก__ selected
+คลิ๊กเลือก CS111<br> จากนั้นคลิ๊กเลือก CS213  | ขึ้น alert และ row CS213 ไม่ถูก select <br> แต่ row CS111 ยัง select เหมือนเดิม | ขึ้น alert และ row CS213 ไม่ถูก select <br> แต่ row CS111 __ไม่ถูก select__ เหมือนเดิม
 
 ---
 - หลังจากที่ serach by course id แล้ว select จะเกิดบัคคือของจะถูกหยิบมาผิด เหมือนก่อนที่จะ serach

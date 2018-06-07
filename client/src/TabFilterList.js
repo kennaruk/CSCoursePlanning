@@ -90,7 +90,9 @@ class List extends React.Component {
         // check prerequisite from selected row
         if ((this.state.data[key[i]].prerequisite.some(i => chkPrerequisite.indexOf(i) < 0))) {
           alert('required : ' + this.state.data[key[i]].prerequisite + ' !')
-          break;
+          this.setState({
+            selectedRows: []
+          })
         } else {
           obj.push({
             selectCourseId: this.state.data[key[i]].courseId,
