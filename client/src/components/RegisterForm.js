@@ -38,7 +38,7 @@ export class RegisterForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <h4> สมัครสมาชิกเลยเด็กๆ </h4>
               <FormGroup controlId="email" bsSize="large">
-                <h6> Name: </h6>
+                <h6 style={{ margin: 0 }}> Name: </h6>
                 <FormControl
                   autoFocus
                   type="text"
@@ -47,7 +47,7 @@ export class RegisterForm extends React.Component {
                 />
               </FormGroup>
               <FormGroup controlId="email" bsSize="large">
-                <h6> Surname: </h6>
+                <h6 style={{ margin: 0 }}> Surname: </h6>
                 <FormControl
                   autoFocus
                   type="text"
@@ -56,7 +56,7 @@ export class RegisterForm extends React.Component {
                 />
               </FormGroup>
               <FormGroup controlId="email" bsSize="large">
-                <h6> E-mail: </h6>
+                <h6 style={{ margin: 0 }}> E-mail: </h6>
                 <FormControl
                   value={this.state.password}
                   onChange={this.handleChange}
@@ -64,7 +64,7 @@ export class RegisterForm extends React.Component {
                 />
               </FormGroup>
               <FormGroup controlId="email" bsSize="large">
-                <h6> Username: </h6>
+                <h6 style={{ margin: 0 }}> Username: </h6>
                 <FormControl
                   value={this.state.password}
                   onChange={this.handleChange}
@@ -72,17 +72,13 @@ export class RegisterForm extends React.Component {
                 />
               </FormGroup>
               <FormGroup controlId="email" bsSize="large">
-                <h6> Password: </h6>
+                <h6 style={{ margin: 0 }}> Password: </h6>
                 <FormControl
                   value={this.state.password}
                   onChange={this.handleChange}
                   type="password"
                 />
               </FormGroup>
-
-
-
-
 
               <Button bsStyle="success"
                 block
