@@ -1,5 +1,5 @@
 import React from 'react'
-import DropDownMenu from 'material-ui/DropDownMenu';
+import { DropDownMenu } from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import { TabSearchBy } from './TabSearchBy.js'
 import { FullCalendar } from './FullCalendar.js'
@@ -24,7 +24,7 @@ export class Body extends React.Component {
     }
 
     handleYearChange = (event, index, value) => this.setState({ value: value });
-    
+
     handleSemester0 = () => this.setState({ semester: 0 })
 
     handleSemester1 = () => this.setState({ semester: 1 })

@@ -5,11 +5,13 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { AppBarExampleIcon } from './AppBarExampleIcon.js';
 import { ButtonIcon } from './IconButton.js';
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import { Cardja } from './Card.js';
+import { CardJa } from './CardJa.js';
 export class ProfileForm extends React.Component {
   render() {
-    return(
-      <Cardja />
+    return (
+      <div>
+        <CardJa />
+      </div>
     );
   }
 }
