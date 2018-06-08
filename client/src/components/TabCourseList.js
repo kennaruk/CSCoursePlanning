@@ -7,19 +7,19 @@ import {
     TableRow,
     TableRowColumn,
 } from 'material-ui/Table';
-var semester_1 = require('./semester_1.json')
-var semester_2 = require('./semester_2.json')
+// var semester_1 = require('./semester_1.json')
+// var semester_2 = require('./semester_2.json')
 
-var arr1 = []
-var arr2 = []
-semester_1.map((item, i) => {
-    arr1.push(item)
-})
+// var arr1 = []
+// var arr2 = []
+// semester_1.map((item, i) => {
+//     arr1.push(item)
+// })
 
-semester_2.map((item, i) => {
-    arr2.push(item)
-})
-var arr_merge = arr1.concat(arr2)
+// semester_2.map((item, i) => {
+//     arr2.push(item)
+// })
+// var arr_merge = arr1.concat(arr2)
 
 
 export class TabCourseList extends React.Component {
@@ -32,10 +32,30 @@ export class TabCourseList extends React.Component {
             deselectOnClickaway: false,
             showRowHover: true,
             selectedRows: [],
-            data: arr_merge,
-
+            data: [],
+            semester_1: [],
+            semester_2: []
         }
     }
+    componentDidMount(){
+        fetch("/getsemester1")
+        .then(res => res.json)
+        .then(res =>
+          this.setState({
+            semester_1: res.data
+          },fetch("/getsemester2")
+          .then(res => res.json)
+          .then(res =>
+            this.setState({
+              semester_2: res.data
+            },()=>{
+              this.setState({
+                data: this.state.semester_1.concat(this.state.semester_2)
+              })
+            })
+          ))
+        )
+      }
 
     _onRowSelection = (key) => {
         this.setState({
@@ -61,7 +81,7 @@ export class TabCourseList extends React.Component {
 
     render() {
         // chkSemester: check semester 1 or semester 1 for show course in that semester
-        const chkSemester = this.props.semester === 1 ? semester_1.map((item, i) => {
+        const chkSemester = this.props.semester === 1 ? this.state.semester_1.map((item, i) => {
             if (item.courseId.includes("CS" + this.props.show))
                 return (
                     <TableRow key={i} selected={this.state.selectedRows.indexOf(i) !== -1}>
@@ -70,7 +90,7 @@ export class TabCourseList extends React.Component {
                         <TableRowColumn>{item.startTime} - {item.endTime}</TableRowColumn>
                     </TableRow>
                 )
-        }) : this.props.semester === 2 ? semester_2.map((item, i) => {
+        }) : this.props.semester === 2 ?  this.state.semester_2.map((item, i) => {
             if (this.props.show === 0) {
                 return null
             }

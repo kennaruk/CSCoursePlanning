@@ -9,33 +9,56 @@ import {
 } from 'material-ui/Table';
 import '../css/TabSearch-style.css';
 
-var semester_1 = require('./semester_1.json')
-var semester_2 = require('./semester_2.json')
+// var semester_1 = require('./semester_1.json')
+// var semester_2 = require('./semester_2.json')
 
-var arr1 = []
-var arr2 = []
-semester_1.map((item, i) => {
-  arr1.push(item)
-})
+// var arr1 = []
+// var arr2 = []
+// semester_1.map((item, i) => {
+//   arr1.push(item)
+// })
 
-semester_2.map((item, i) => {
-  arr2.push(item)
-})
-var arr_merge = arr1.concat(arr2)
+// semester_2.map((item, i) => {
+//   arr2.push(item)
+// })
+// var arr_merge = arr1.concat(arr2)
 
 // Filter course
 export class TabFilterList extends React.Component {
-  componentWillMount() {
-    this.setState({
-      items: this.state.initialItems
-    })
+  // componentWillMount() {
+  //   this.setState({
+  //     items: this.state.initialItems
+  //   })
+  // }
+
+  componentDidMount(){
+    fetch("/getsemester1")
+    .then(res => res.json)
+    .then(res =>
+      this.setState({
+        semester_1: res.data
+      },fetch("/getsemester2")
+      .then(res => res.json)
+      .then(res =>
+        this.setState({
+          semester_2: res.data
+        },()=>{
+          this.setState({
+            initialItems: this.state.semester_1.concat(this.state.semester_2),
+            items : this.state.initialItems //from componentWillMount
+          })
+        })
+      ))
+    )
   }
 
   constructor(props) {
     super(props)
     this.state = {
-      initialItems: arr_merge,
+      initialItems: [], // arr_merge
       items: [],
+      semester_1: [],
+      semester_2: [],
     }
   }
 
@@ -49,12 +72,12 @@ export class TabFilterList extends React.Component {
       items: updatedList,
     });
   }
-
+// sent state data to list (arr_merge)
   render() {
     return (
       <div className="filter-list">
         <input type="text" id="input" className="Input-text" placeholder="Search by course id" onChange={this.filterList} />
-        <List items={this.state.items} onUpdateCourse={this.props.onUpdateCourse} />
+        <List items={this.state.items} onUpdateCourse={this.props.onUpdateCourse} data={this.state.initialItems} /> 
       </div>
     )
   }
@@ -70,7 +93,7 @@ class List extends React.Component {
       enableSelectAll: false,
       deselectOnClickaway: false,
       showRowHover: true,
-      data: arr_merge,
+      // data: arr_merge,  // change to props.data and change all state -> props
       selectedRows: []
     }
   }
@@ -88,22 +111,22 @@ class List extends React.Component {
         }
 
         // check prerequisite from selected row.
-        if ((this.state.data[key[i]].prerequisite.some(i => chkPrerequisite.indexOf(i) < 0))) {
-          alert('required : ' + this.state.data[key[i]].prerequisite + ' !')
+        if ((this.props.data[key[i]].prerequisite.some(i => chkPrerequisite.indexOf(i) < 0))) {
+          alert('required : ' + this.props.data[key[i]].prerequisite + ' !')
           this.setState({
             selectedRows: []
           })
         } else {
           obj.push({
-            selectCourseId: this.state.data[key[i]].courseId,
-            selectStartTime: this.state.data[key[i]].startTime,
-            selectEndTime: this.state.data[key[i]].endTime,
-            selectDays: this.state.data[key[i]].days,
-            selectCredit: this.state.data[key[i]].credit,
-            selectPrerequisite: this.state.data[key[i]].prerequisite
+            selectCourseId: this.props.data[key[i]].courseId,
+            selectStartTime: this.props.data[key[i]].startTime,
+            selectEndTime: this.props.data[key[i]].endTime,
+            selectDays: this.props.data[key[i]].days,
+            selectCredit: this.props.data[key[i]].credit,
+            selectPrerequisite: this.props.data[key[i]].prerequisite
           });
         }
-        chkPrerequisite.push(this.state.data[key[i]].courseId)
+        chkPrerequisite.push(this.props.data[key[i]].courseId)
         // console.log('i:',i,'obj:',obj)
       }
     });
