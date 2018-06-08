@@ -118,28 +118,17 @@ exports.getUserById = (id,cb) =>{
 }
 
 exports.updateUserById = (payload,cb) =>{
+    bcrypt.hash(payload.password, saltRounds, (err, hash) => {
+        payload.password = hash;
+        User.update({_id:payload._id},payload)
+            .then(()=>{
+                cb();
+            })
+            .catch(err =>{
+                cb(err);
+            })
+    });
     
-    // User.findOne({_id : payload.id}, (err,user)=>{
-    //     if(err)
-    //         cb(err)
-    //     else{
-    //         user._id = payload.id;
-    //         user.name = payoad.surname;
-    //         user.email = payload.email;
-    //         user.username = payload.username;
-    //         user.password = payload.password;
-    //         user.save().then(()=>cb())
-    //         .catch(err => cb(err)) 
-    //     }
-    // })
-
-    User.update({_id:payload.id},payload)
-    .then(()=>{
-        cb();
-    })
-    .catch(err =>{
-        cb(err);
-    })
 }
 
 exports.deleteUserById = (id,cb) =>{

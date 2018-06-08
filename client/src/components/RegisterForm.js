@@ -49,7 +49,7 @@ export class RegisterForm extends React.Component {
         if(res.success) {
           this.props.history.push('/login');
         } else { 
-
+          alert('สมัครไม่สำเร็จ')
         }
       })
     }
@@ -80,7 +80,7 @@ export class RegisterForm extends React.Component {
                 />
               </FormGroup>
               <FormGroup controlId="email" bsSize="large">
-                <h6> E-mail: </h6>
+                <h6 style={{ margin: 0 }}> E-mail: </h6>
                 <FormControl
                   value={this.state.email}
                   onChange={this.handleChange}

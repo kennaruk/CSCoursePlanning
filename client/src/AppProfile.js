@@ -6,10 +6,15 @@ import { ProfileForm } from './components/ProfileForm.js';
 // import { Calendar } from './Calendar.js'
 
 class AppProfile extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
+    console.log('AppProfile id:', this.props.id)
+
     return (
       <div>
-        <ProfileForm />
+        <ProfileForm {...this.props}/>
       </div>
     );
   }

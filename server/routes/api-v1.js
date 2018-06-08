@@ -42,7 +42,7 @@ router.get('/re-fetch', (req, res, next) => {
 
 router.get('/getsemester1', (req, res, next) => {
    todb.getCourseBySemester(1, (err, result) => {
-       console.log('result:', result)
+    //    console.log('result:', result)
      res.json({ data : result })
    });
 });
@@ -117,7 +117,7 @@ router.get('/auth/facebook/callback', (req, res, next) => {
 });
 
 router.get('/getuser/:userid', (req, res, next) => {
-    let userid = parseInt(req.params.userid);
+    let userid = req.params.userid;
     console.log('GetUserById');
     todb.getUserById(userid,(user,err)=>{
         if(!err){
@@ -136,13 +136,12 @@ router.get('/getuser/:userid', (req, res, next) => {
     })
 });
 
-router.put('/updateuser/:userid', (req, res, next) => {
+router.put('/updateuser', (req, res, next) => {
     let payload = {
-        id : req.params.userid,
+        _id : req.body._id,
         name: req.body.name,
         surname:  req.body.surname,
         email:  req.body.email,
-        username:  req.body.username,
         password:  req.body.password,
     }
     console.log('UpdateUserById');
@@ -163,7 +162,7 @@ router.put('/updateuser/:userid', (req, res, next) => {
 });
 
 router.delete('/deleteuser/:userid', (req, res, next) => {
-    let userid = parseInt(req.params.userid);
+    let userid = req.params.userid;
     console.log('DeleteUserById');
     todb.deleteUserById(userid,(err)=>{
         if(!err){

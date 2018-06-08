@@ -37,12 +37,12 @@ export class TabSearchBy extends React.Component {
         return (
             <div>
                 <Tabs>
-                    <Tab label="Search" value="a" onActive={this.toggleSearch} disabled>
+                    <Tab label="Search" value="a" onActive={this.toggleSearch} disabled >
                         <div>
                             <TabFilterList chksemester={this.props.semester} onUpdateCourse={this.props.onUpdateCourse} />
                         </div>
                     </Tab>
-                    <Tab label="Course list" value="b" disabled>
+                    {/* <Tab label="Course list" value="b" disabled >
                         <div style={{ width: '100%' }}>
                             <br />
                             <RaisedButton label="CS1xx" primary={true} style={style_btn} onClick={this.handleShowCs1} />
@@ -50,7 +50,7 @@ export class TabSearchBy extends React.Component {
                             <RaisedButton label="CS3xx" primary={true} style={style_btn} onClick={this.handleShowCs3} />
                             <RaisedButton label="CS4xx" primary={true} style={style_btn} onClick={this.handleShowCs4} />
                         </div>
-                    </Tab>
+                    </Tab> */}
                 </Tabs>
 
                 {isShowCourseList}

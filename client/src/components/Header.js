@@ -9,6 +9,7 @@ import '../css/calendar-style.css';
 export class Header extends React.Component {
     constructor(props) {
         super(props);
+        // console.log('history:', this.props.pushHistory)
         this.state = {
             openDrawer: false
         };
@@ -18,22 +19,33 @@ export class Header extends React.Component {
     handleToggle = () => this.setState({ openDrawer: true });
     handleClose = () => this.setState({ openDrawer: false });
     handleLogout = () => {
+        this.handleClose();
         this.props.hasAuthenticated(false);
     }
-
-
+    handleLoginClick = () => {
+        this.handleClose();
+        this.props.pushHistory('/login');
+    }
+    handleRegisterClick = () => {
+        this.handleClose();
+        this.props.pushHistory('/register');
+    }
+    handleProfileClick = () => {
+        this.handleClose();
+        this.props.pushHistory('/profile');
+    }
+    handleLogoutClick = () => {
+        this.handleClose();
+        this.props.hasAuthenticated(false);
+        this.props.pushHistory('/');
+    }
     render() {
-        const LoginButtonPanel = this.props.isAuthenticated ?
-            <button style={{ margin: 7 }} href="login" onClick={this.a} > login </button>
-            :
-            <button style={{ margin: 7 }} href="/" onClick={this.a}> logout </button>
-
         return (
             <div>
                 <AppBar
                     title="Course Management"
                     // Login BUTTON here
-                    iconElementRight={<RaisedButton label="LOGIN" />}
+                    // iconElementRight={<RaisedButton label="LOGIN" />}
                     onLeftIconButtonClick={this.handleToggle}
                 />
 
@@ -44,7 +56,19 @@ export class Header extends React.Component {
                     onRequestChange={(open) => this.setState({ open })}
                 >
                     <MenuItem onClick={this.handleClose}>Back</MenuItem>
-                    <MenuItem onClick={this.handleClose}>About me</MenuItem>
+                    {
+                        !this.props.isAuthenticated ? 
+                        <div>
+                            <MenuItem onClick={this.handleLoginClick}  >Login</MenuItem>
+                            <MenuItem onClick={this.handleRegisterClick} >Register</MenuItem>
+                        </div>
+                        :
+                        <div>
+                            <MenuItem onClick={this.handleProfileClick} >Profile</MenuItem>
+                            <MenuItem onClick={this.handleLogoutClick}  >Logout</MenuItem>
+                        </div>
+                    }
+                    
                 </Drawer>
 
             </div >
