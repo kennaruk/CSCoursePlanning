@@ -28,6 +28,19 @@ export class LoginForm extends React.Component {
 
     handleSubmit = event => {
       event.preventDefault();
+      const parseObj = {
+        usernameOrEmail: this.state.email,
+        password: this.state.password
+      }
+      fetch('/login', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(parseObj),
+      }).then(res => res.json())
+      .then(res => console.log(res))
     }
   render() {
     return(

@@ -70,12 +70,22 @@ router.post('/login', (req, res, next) => {
     };
     todb.getUserByEmailAndPassword(payload, (err, user) => {
         console.log(err)
-        if(!err)
-            res.json({
-                success: true,
-                message: "Get user success",
-                data: user
-            });
+        if(!err) {
+            if(data) {
+                res.json({
+                    success: true,
+                    message: "Login success",
+                    data: user
+                });
+            } else {
+                res.json({
+                    success: false,
+                    message: "Login not success",
+                    data: user
+                });
+            }
+        }
+            
         else
             res.json({
                 success: false,

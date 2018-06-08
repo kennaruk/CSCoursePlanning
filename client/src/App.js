@@ -8,14 +8,29 @@ import AppLogin from './AppLogin';
 import AppRegister from './AppRegister';
 import AppMain from './AppMain';
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isAuthenticated: false
+    }
+  }
+
+  hasAuthenticated = (authenticated) => {
+    this.setState({isAuthenticated: authenticated});
+  }
+
   render() {
+    const childProps = {
+      isAuthenticated: this.state.isAuthenticated,
+      hasAuthenticated: this.hasAuthenticated
+    }
     return (
       <MuiThemeProvider>
         <Header />
           <Switch>
-            <Route path="/login" exact component={AppLogin} />
-            <Route path="/register" exact component={AppRegister}/>
-            <Route path="/" component={AppMain}/>
+            <Route path="/login" exact render={(props) => { return (<AppLogin {...props} hasAuthenticated={this.hasAuthenticated} />)}  }/>
+            <Route path="/register" exact render={(props) => { return (<AppRegister {...props} hasAuthenticated={this.hasAuthenticated}/> )}  }/>
+            <Route path="/" render={AppMain}/>
           </Switch>
         <Footer />
       </MuiThemeProvider>
