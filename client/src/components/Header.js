@@ -24,7 +24,7 @@ export class Header extends React.Component {
                 <AppBar
                     title="Course Management"
                     // Login BUTTON here
-                    iconElementRight={<RaisedButton label="Login" style={{ margin: 7 }} href="login" />}
+                    // iconElementRight={<RaisedButton label="Login" style={{ margin: 7 }} href="login" />}
                     onLeftIconButtonClick={this.handleToggle}
                 />
                 <Drawer
@@ -34,7 +34,12 @@ export class Header extends React.Component {
                     onRequestChange={(open) => this.setState({ open })}
                 >
                     <MenuItem onClick={this.handleClose}>Back</MenuItem>
-                    <MenuItem onClick={this.handleClose}>About me</MenuItem>
+                    {
+                        
+                    }
+                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                    <MenuItem onClick={this.handleClose}  href="login" >Login</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Register</MenuItem>
                 </Drawer>
 
             </div >

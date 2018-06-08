@@ -8,13 +8,17 @@ import AppLogin from './AppLogin';
 import AppRegister from './AppRegister';
 import AppMain from './AppMain';
 import AppProfile from './AppProfile';
+
+
+
 class App extends Component {
+
   render() {
     return (
       <MuiThemeProvider>
         <Header />
           <Switch>
-            <Route path="/login" exact component={AppLogin} />
+            <Route path="/login" exact component={AppLogin}/>
             <Route path="/register" exact component={AppRegister}/>
             <Route path="/profile" component={AppProfile}/>
             <Route path="/" component={AppMain}/>

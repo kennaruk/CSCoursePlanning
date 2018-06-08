@@ -12,7 +12,8 @@ export class LoginForm extends React.Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      isLogin: false
     };
   }
 
@@ -29,6 +30,14 @@ export class LoginForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
   }
+
+
+  isLogin = () => {
+    this.setState({
+      isLogin: true
+    })
+  }
+
   render() {
     return (
       <div class="login body">
@@ -60,6 +69,7 @@ export class LoginForm extends React.Component {
                   bsSize="large"
                   disabled={!this.validateForm()}
                   type="submit"
+                  onClick={this.isLogin}
                 >
                   Sign in
               </Button>
