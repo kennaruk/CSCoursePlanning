@@ -12,11 +12,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      isAuthenticated: false
+      isAuthenticated: false,
+      _id: ""
     }
   }
 
-  hasAuthenticated = (authenticated) => {
+  hasAuthenticated = (authenticated, _id) => {
+    if(authenticated) {
+      this.setState({_id: _id});
+    } 
     this.setState({isAuthenticated: authenticated});
   }
 
@@ -27,11 +31,11 @@ class App extends Component {
     }
     return (
       <MuiThemeProvider>
-        <Header />
+        <Header isAuthenticated={this.state.isAuthenticated}/>
           <Switch>
             <Route path="/login" exact render={(props) => { return (<AppLogin {...props} hasAuthenticated={this.hasAuthenticated} />)}  }/>
             <Route path="/register" exact render={(props) => { return (<AppRegister {...props} hasAuthenticated={this.hasAuthenticated}/> )}  }/>
-            <Route path="/" render={AppMain}/>
+            <Route path="/" component={AppMain}/>
           </Switch>
         <Footer />
       </MuiThemeProvider>

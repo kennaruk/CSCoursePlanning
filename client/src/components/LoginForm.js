@@ -40,7 +40,15 @@ export class LoginForm extends React.Component {
         },
         body: JSON.stringify(parseObj),
       }).then(res => res.json())
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res)
+        if(res.success) {
+          this.props.hasAuthenticated(true);
+          this.props.history.push("/");
+        } else {
+
+        }
+      })
     }
   render() {
     return(

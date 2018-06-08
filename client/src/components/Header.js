@@ -17,16 +17,26 @@ export class Header extends React.Component {
     // Handle Drawer
     handleToggle = () => this.setState({ openDrawer: true });
     handleClose = () => this.setState({ openDrawer: false });
+    handleLogout = () => {
+        this.props.hasAuthenticated(false);
+    }
+
 
     render() {
+        const LoginButtonPanel = this.props.isAuthenticated ?
+            <button style={{ margin: 7 }} href="login" onClick={this.a} > login </button>
+            :
+            <button style={{ margin: 7 }} href="/" onClick={this.a}> logout </button>
+
         return (
             <div>
                 <AppBar
                     title="Course Management"
                     // Login BUTTON here
-                    iconElementRight={<RaisedButton label="Login" style={{ margin: 7 }} href="login" />}
+                    iconElementRight={<RaisedButton label="LOGIN" />}
                     onLeftIconButtonClick={this.handleToggle}
                 />
+
                 <Drawer
                     docked={false}
                     width={200}

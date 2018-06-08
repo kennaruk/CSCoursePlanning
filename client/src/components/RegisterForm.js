@@ -45,7 +45,13 @@ export class RegisterForm extends React.Component {
         },
         body: JSON.stringify(parseObj),
       }).then(res => res.json())
-      .then(res => console.log(res))
+      .then(res => {
+        if(res.success) {
+          this.props.history.push('/login');
+        } else { 
+
+        }
+      })
     }
   render() {
     return(

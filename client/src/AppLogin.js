@@ -12,11 +12,14 @@ import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 // import { Calendar } from './Calendar.js'
 
 class AppLogin extends Component {
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
       <div>
-        <LoginForm />
+        <LoginForm {...this.props}/>
       </div>
     );
   }
