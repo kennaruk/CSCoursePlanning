@@ -113,7 +113,7 @@ exports.getUserById = (id,cb) =>{
         if(err)
             cb(err, null)
         else{
-            cb(user, null)
+            cb(err, user)
         }
     })
 }
