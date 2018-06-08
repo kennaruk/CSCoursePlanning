@@ -19,7 +19,7 @@
   {
     "courseId": "CS105",
     "courseName": "Practicum for Structural Programming",
-    "prerequisite": ["!CS102"],
+    "prerequisite": ["CS102"],
     "credit": 1,
     "days": ["Thu"],
     "startTime": "09:00",
@@ -37,7 +37,7 @@
   {
     "courseId": "CS213",
     "courseName": "Data Structures",
-    "prerequisite": ["CS111 OR CS112"],
+    "prerequisite": ["CS111","CS112"],
     "credit": 3,
     "days": ["Tue", "Thu"],
     "startTime": "15:00",
@@ -46,7 +46,7 @@
   {
     "courseId": "CS223",
     "courseName": "Computer Organization and Architecture",
-    "prerequisite": ["CS111 OR CS112"],
+    "prerequisite": ["CS111","CS112"],
     "credit": 3,
     "days": ["Tue", "Thu"],
     "startTime": "13:30",

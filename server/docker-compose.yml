@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+  cscourseplanning:
+    image: cscourseplanning
+    build: .
+    command: npm start
+    # environment:
+    #   NODE_ENV: production
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/usr/src/app
+      - ./node_modules/:/usr/src/app/node_modules
