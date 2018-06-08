@@ -7,6 +7,7 @@ import { Footer } from './components/Footer.js'
 import AppLogin from './AppLogin';
 import AppRegister from './AppRegister';
 import AppMain from './AppMain';
+import AppProfile from './AppProfile';
 class App extends Component {
   constructor() {
     super();

@@ -51,6 +51,7 @@ export class LoginForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <h4> Sign in to your account! </h4>
               <FormGroup controlId="email" bsSize="large">
+                <h6> Username : </h6>
                 <FormControl
                   autoFocus
                   type="email"
@@ -59,10 +60,12 @@ export class LoginForm extends React.Component {
                 />
               </FormGroup>
               <FormGroup controlId="password" bsSize="large">
+                <h6> Password : </h6>
                 <FormControl
                   value={this.state.password}
                   onChange={this.handleChange}
                   type="password"
+                  
                 />
               </FormGroup>
               <Button bsStyle="success"

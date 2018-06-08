@@ -12,7 +12,9 @@ export class RegisterForm extends React.Component {
 
       this.state = {
         email: "",
-        password: ""
+        password: "",
+        name: "",
+        surname: ""
       };
     }
 
@@ -28,6 +30,22 @@ export class RegisterForm extends React.Component {
 
     handleSubmit = event => {
       event.preventDefault();
+      const parseObj = {
+        email: this.state.email,
+        password: this.state.password,
+        name: this.state.name,
+        surname: this.state.surname
+      }
+
+      fetch('/register', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(parseObj),
+      }).then(res => res.json())
+      .then(res => console.log(res))
     }
   render() {
     return(
@@ -37,36 +55,40 @@ export class RegisterForm extends React.Component {
           <div className="Login">
             <form onSubmit={this.handleSubmit}>
               <h4> สมัครสมาชิกเลยเด็กๆ </h4>
+              <FormGroup controlId="name" bsSize="large">
+                <h6> Name: </h6>
+                <FormControl
+                  autoFocus
+                  type="text"
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
+              <FormGroup controlId="surname" bsSize="large">
+                <h6> Surname: </h6>
+                <FormControl
+                  autoFocus
+                  type="text"
+                  value={this.state.surname}
+                  onChange={this.handleChange}
+                />
+              </FormGroup>
               <FormGroup controlId="email" bsSize="large">
+                <h6> E-mail: </h6>
                 <FormControl
-                  autoFocus
-                  type="text"
                   value={this.state.email}
                   onChange={this.handleChange}
-                />
-                <FormControl
-                  autoFocus
                   type="text"
-                  value={this.state.email}
-                  onChange={this.handleChange}
                 />
-                <FormControl
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  type="password"
-                />
-                <FormControl
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  type="password"
-                />
+              </FormGroup>
+              <FormGroup controlId="password" bsSize="large">
+                <h6> Password: </h6>
                 <FormControl
                   value={this.state.password}
                   onChange={this.handleChange}
                   type="password"
                 />
               </FormGroup>
-
               <Button bsStyle="success"
                 block
                 bsSize="large"

@@ -69,9 +69,10 @@ router.post('/login', (req, res, next) => {
         password:        req.body.password
     };
     todb.getUserByEmailAndPassword(payload, (err, user) => {
-        console.log(err)
+        // console.log(err)
+        console.log('err:', err, 'user:', user)
         if(!err) {
-            if(data) {
+            if(user) {
                 res.json({
                     success: true,
                     message: "Login success",

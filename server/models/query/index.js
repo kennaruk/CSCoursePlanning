@@ -28,7 +28,6 @@ exports.addUserByEmailAndPassword = (params, cb) => {
 
 
     bcrypt.hash(password, saltRounds, (err, hash) => {
-        console.log('addUserByEmailPassword hash:', hash)
         if(err)
             cb(err);
         else {
@@ -59,13 +58,13 @@ exports.getUserByEmailAndPassword = (params, cb) => {
                 if(!user)
                     cb(err, null);
                 else
-                    if(bcrypt.compareSync(user.password, password))
+                    if(bcrypt.compareSync(password, user.password))
                         cb(err, user);
                     else
                         cb(err, null);
             });
         } else 
-            if(bcrypt.compareSync(user.password, password))
+            if(bcrypt.compareSync(password, user.password))
                 cb(err, user);
             else
                 cb(err, null);
