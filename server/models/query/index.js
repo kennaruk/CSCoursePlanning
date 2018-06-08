@@ -108,3 +108,47 @@ exports.addCourseSemester2 = (cb) => {
     });
 }
 
+exports.getUserById = (id,cb) =>{
+    User.findOne({_id : id}, (err,user)=>{
+        if(err)
+            cb(err, null)
+        else{
+            cb(user, null)
+        }
+    })
+}
+
+exports.updateUserById = (payload,cb) =>{
+    
+    // User.findOne({_id : payload.id}, (err,user)=>{
+    //     if(err)
+    //         cb(err)
+    //     else{
+    //         user._id = payload.id;
+    //         user.name = payoad.surname;
+    //         user.email = payload.email;
+    //         user.username = payload.username;
+    //         user.password = payload.password;
+    //         user.save().then(()=>cb())
+    //         .catch(err => cb(err)) 
+    //     }
+    // })
+
+    User.update({_id:payload.id},payload)
+    .then(()=>{
+        cb();
+    })
+    .catch(err =>{
+        cb(err);
+    })
+}
+
+exports.deleteUserById = (id,cb) =>{
+    User.remove({_id:id})
+    .then(()=>{
+        cb();
+    })
+    .catch(err =>{
+        cb(err);
+    })
+}

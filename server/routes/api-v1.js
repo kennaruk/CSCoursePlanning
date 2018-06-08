@@ -104,4 +104,63 @@ router.get('/auth/facebook/callback', (req, res, next) => {
     });
 });
 
+router.get('/getuser/:userid', (req, res, next) => {
+    let userid = parseInt(req.params.userid);
+    console.log('GetUserById');
+    todb.getUserById(userid,(user,err)=>{
+        if(!err)
+        res.json({
+            success: true,
+            message: "Get userByid success",
+            data: user
+        });
+        else
+        res.json({
+            success: false,
+            message: err
+        });
+    })
+});
+
+router.put('/updateuser/:userid', (req, res, next) => {
+    let payload = {
+        id : req.params.userid,
+        name: req.body.name,
+        surname:  req.body.surname,
+        email:  req.body.email,
+        username:  req.body.username,
+        password:  req.body.password,
+    }
+    console.log('UpdateUserById');
+    todb.updateUserById(payload,(err)=>{
+        if(!err)
+        res.json({
+            success: true,
+            message: "PUT updateUserByid success",
+        });
+        else
+        res.json({
+            success: false,
+            message: err
+        });
+    })
+});
+
+router.delete('/deleteuser/:userid', (req, res, next) => {
+    let userid = parseInt(req.params.userid);
+    console.log('DeleteUserById');
+    todb.deleteUserById(userid,(err)=>{
+        if(!err)
+        res.json({
+            success: true,
+            message: "DELETE deleteUserById success",
+        });
+        else
+        res.json({
+            success: false,
+            message: err
+        });
+    })
+});
+
 module.exports = router;
