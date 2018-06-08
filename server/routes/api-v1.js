@@ -40,6 +40,18 @@ router.get('/re-fetch', (req, res, next) => {
     });
 });
 
+router.get('/getsemester1', (req, res, next) => {
+   todb.getCourseBySemester(1,(err,result)=>{
+     res.json({ data : result})
+   })
+});
+
+router.get('/getsemester2', (req, res, next) => {
+    todb.getCourseBySemester(2,(err,result)=>{
+      res.json({ data : result})
+    })
+ });
+
 router.post('/register', (req, res, next) => {
     let payload = {
         email:      req.body.email,

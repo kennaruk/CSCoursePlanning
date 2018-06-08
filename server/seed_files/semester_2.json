@@ -50,7 +50,7 @@
         "prerequisite": ["CS213"],
         "credit": 3,
         "days": ["Fri"],
-        "startTime": "9:30",
+        "startTime": "09:30",
         "endTime": "12:30"
     },
     {
@@ -59,7 +59,7 @@
         "prerequisite": ["!CS251"],
         "credit": 3,
         "days": ["Wed"],
-        "startTime": "9:30",
+        "startTime": "09:30",
         "endTime": "12:30"
     },
     {
