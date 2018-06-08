@@ -1,5 +1,5 @@
 import React from 'react'
-import './css/calendar-style.css';
+import '../css/calendar-style.css';
 import $ from 'jquery'
 import fullcalendar from 'fullcalendar'
 import moment from 'moment'
@@ -10,7 +10,7 @@ var dayColor = ''
 export class FullCalendar extends React.Component {
     componentDidMount() {
         $('#calendar').fullCalendar({
-            // height: 750,  
+            // height: 750,
             contentHeight: 'auto',
             slotLabelFormat: "HH:mm",
             allDaySlot: false,
@@ -86,4 +86,3 @@ export class FullCalendar extends React.Component {
         );
     }
 }
-

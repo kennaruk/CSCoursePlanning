@@ -2,8 +2,8 @@ import React from 'react'
 import AppBar from 'material-ui/AppBar';
 import MenuItem from 'material-ui/MenuItem';
 import Drawer from 'material-ui/Drawer';
-
-import './css/calendar-style.css';
+import RaisedButton from 'material-ui/RaisedButton';
+import '../css/calendar-style.css';
 
 
 export class Header extends React.Component {
@@ -14,7 +14,7 @@ export class Header extends React.Component {
         };
     }
 
-    // Handle Drawer 
+    // Handle Drawer
     handleToggle = () => this.setState({ openDrawer: true });
     handleClose = () => this.setState({ openDrawer: false });
 
@@ -24,7 +24,7 @@ export class Header extends React.Component {
                 <AppBar
                     title="Course Management"
                     // Login BUTTON here
-                    // iconElementRight={<RaisedButton label="Login" style={{ margin: 7 }} />}
+                    iconElementRight={<RaisedButton label="Login" style={{ margin: 7 }} href="login" />}
                     onLeftIconButtonClick={this.handleToggle}
                 />
                 <Drawer
@@ -41,4 +41,3 @@ export class Header extends React.Component {
         )
     }
 }
-

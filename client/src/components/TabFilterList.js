@@ -7,7 +7,7 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import './css/TabSearch-style.css';
+import '../css/TabSearch-style.css';
 
 var semester_1 = require('./semester_1.json')
 var semester_2 = require('./semester_2.json')
@@ -60,7 +60,7 @@ export class TabFilterList extends React.Component {
   }
 }
 
-// Show list OR show list after filter 
+// Show list OR show list after filter
 class List extends React.Component {
   constructor(props) {
     super(props)
@@ -124,6 +124,7 @@ class List extends React.Component {
               <TableHeaderColumn style={{ width: "4rem" }}>รหัสวิชา</TableHeaderColumn>
               <TableHeaderColumn>ชื่อวิชา</TableHeaderColumn>
               <TableHeaderColumn>เวลาเรียน</TableHeaderColumn>
+
             </TableRow>
           </TableHeader>
           <TableBody
@@ -134,9 +135,11 @@ class List extends React.Component {
               this.props.items.map((item, i) => {
                 return (
                   <TableRow key={i} selected={this.state.selectedRows.indexOf(i) !== -1}>
-                    <TableRowColumn style={{ width: "4rem" }}>{item.courseId}</TableRowColumn>
+                    <TableRowColumn style={{ width: "4rem" }}>{item.courseId} </TableRowColumn>
                     <TableRowColumn>{item.courseName}</TableRowColumn>
                     <TableRowColumn >{item.startTime} - {item.endTime}</TableRowColumn>
+                    <TableRowColumn >{item.days}</TableRowColumn>
+
                   </TableRow>
                 )
               })
