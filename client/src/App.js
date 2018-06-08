@@ -7,6 +7,7 @@ import { Footer } from './components/Footer.js'
 import AppLogin from './AppLogin';
 import AppRegister from './AppRegister';
 import AppMain from './AppMain';
+import AppProfile from './AppProfile';
 class App extends Component {
   render() {
     return (
@@ -15,6 +16,7 @@ class App extends Component {
           <Switch>
             <Route path="/login" exact component={AppLogin} />
             <Route path="/register" exact component={AppRegister}/>
+            <Route path="/profile" component={AppProfile}/>
             <Route path="/" component={AppMain}/>
           </Switch>
         <Footer />

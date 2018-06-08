@@ -38,34 +38,51 @@ export class RegisterForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <h4> สมัครสมาชิกเลยเด็กๆ </h4>
               <FormGroup controlId="email" bsSize="large">
+                <h6> Name: </h6>
                 <FormControl
                   autoFocus
                   type="text"
                   value={this.state.email}
                   onChange={this.handleChange}
                 />
+              </FormGroup>
+              <FormGroup controlId="email" bsSize="large">
+                <h6> Surname: </h6>
                 <FormControl
                   autoFocus
                   type="text"
                   value={this.state.email}
                   onChange={this.handleChange}
                 />
-                <FormControl
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  type="password"
-                />
-                <FormControl
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                  type="password"
-                />
+              </FormGroup>
+              <FormGroup controlId="email" bsSize="large">
+                <h6> E-mail: </h6>
                 <FormControl
                   value={this.state.password}
                   onChange={this.handleChange}
                   type="password"
                 />
               </FormGroup>
+              <FormGroup controlId="email" bsSize="large">
+                <h6> Username: </h6>
+                <FormControl
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                  type="password"
+                />
+              </FormGroup>
+              <FormGroup controlId="email" bsSize="large">
+                <h6> Password: </h6>
+                <FormControl
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                  type="password"
+                />
+              </FormGroup>
+
+
+
+
 
               <Button bsStyle="success"
                 block
