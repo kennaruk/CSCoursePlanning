@@ -21,14 +21,14 @@
     "courseName": "Introduction to Computer Programming",
     "prerequisite": [],
     "credit": 3,
-    "days": ["Wed,Fri"],
+    "days": ["Wed","Fri"],
     "startTime": "09:30",
     "endTime": "11:00"
   } ,
   {
     "courseId": "CS105",
     "courseName": "Practicum for Structural Programming",
-    "prerequisite": ["!CS102"],
+    "prerequisite": ["CS102"],
     "credit": 1,
     "days": ["Thu"],
     "startTime": "09:30",
@@ -46,7 +46,7 @@
   {
     "courseId": "CS213",
     "courseName": "Data Structures",
-    "prerequisite": ["CS111 OR CS112"],
+    "prerequisite": ["CS111","CS112"],
     "credit": 3,
     "days": ["Tue", "Thu"],
     "startTime": "15:00",
@@ -55,7 +55,7 @@
   {
     "courseId": "CS215",
     "courseName": " Programming Practicum using Application Programming Interface",
-    "prerequisite": ["!CS211"],
+    "prerequisite": ["CS211"],
     "credit": 3,
     "days": ["Thu"],
     "startTime": "08:00",
@@ -64,7 +64,7 @@
   {
     "courseId": "CS223",
     "courseName": "Computer Organization and Architecture",
-    "prerequisite": ["CS111 OR CS112"],
+    "prerequisite": ["CS111","CS112"],
     "credit": 3,
     "days": ["Tue", "Thu"],
     "startTime": "13:30",
@@ -82,7 +82,7 @@
   {
     "courseId": "CS284",
     "courseName": "Introduction to Software Engineering",
-    "prerequisite": ["CS111 OR CS112"],
+    "prerequisite": ["CS111","CS112"],
     "credit": 3,
     "days": ["Wed", "Fri"],
     "startTime": "13:30",
@@ -127,7 +127,7 @@
   {
     "courseId": "CS297",
     "courseName": "Fundamental Techniques in Computer Graphics using API",
-    "prerequisite": ["!CS299"],
+    "prerequisite": ["CS299"],
     "credit": 3,
     "days": ["Wed","Fri"],
     "startTime": "13:30",
@@ -226,7 +226,7 @@
   {
     "courseId": "CS399",
     "courseName": "Three Dimensional Industry Concepts and Practices",
-    "prerequisite": ["!CS398"],
+    "prerequisite": ["CS398"],
     "credit": 3,
     "days": ["Wed", "Fri"],
     "startTime": "11:00",

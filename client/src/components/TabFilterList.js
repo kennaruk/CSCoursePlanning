@@ -146,7 +146,7 @@ class List extends React.Component {
             enableSelectAll={this.state.enableSelectAll}
           >
             <TableRow>
-              <TableHeaderColumn style={{ width: "4rem" }}>รหัสวิชา</TableHeaderColumn>
+              <TableHeaderColumn>รหัสวิชา</TableHeaderColumn>
               <TableHeaderColumn>ชื่อวิชา</TableHeaderColumn>
               <TableHeaderColumn>เวลาเรียน</TableHeaderColumn>
 
@@ -160,7 +160,7 @@ class List extends React.Component {
               this.props.items.map((item, i) => {
                 return (
                   <TableRow key={i} selected={this.state.selectedRows.indexOf(i) !== -1}>
-                    <TableRowColumn style={{ width: "4rem" }}>{item.courseId} </TableRowColumn>
+                    <TableRowColumn>{item.courseId} </TableRowColumn>
                     <TableRowColumn>{item.courseName}</TableRowColumn>
                     <TableRowColumn >{item.startTime} - {item.endTime}</TableRowColumn>
                     <TableRowColumn >{item.days}</TableRowColumn>

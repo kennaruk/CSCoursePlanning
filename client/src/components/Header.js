@@ -22,6 +22,13 @@ export class Header extends React.Component {
         this.handleClose();
         this.props.hasAuthenticated(false);
     }
+    handleHomeClick = () => {
+        this.handleClose();
+        this.props.pushHistory('/');
+    }
+    handleBackClick = () => {
+        this.handleClose();
+    }
     handleLoginClick = () => {
         this.handleClose();
         this.props.pushHistory('/login');
@@ -54,8 +61,10 @@ export class Header extends React.Component {
                     width={200}
                     open={this.state.openDrawer}
                     onRequestChange={(open) => this.setState({ open })}
+                    onClick = {() => { this.handleClose }}
                 >
-                    <MenuItem onClick={this.handleClose}>Back</MenuItem>
+                    <MenuItem onClick={this.handleHomeClick}>Home</MenuItem>
+                    
                     {
                         !this.props.isAuthenticated ? 
                         <div>
@@ -68,6 +77,7 @@ export class Header extends React.Component {
                             <MenuItem onClick={this.handleLogoutClick}  >Logout</MenuItem>
                         </div>
                     }
+                    <MenuItem onClick={this.handleClose}>Close</MenuItem>
                     
                 </Drawer>
 

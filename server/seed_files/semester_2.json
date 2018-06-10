@@ -38,7 +38,7 @@
     {
         "courseId": "CS231",
         "courseName": "Programming Languages & Paradigms",
-        "prerequisite": ["CS111 OR CS112"],
+        "prerequisite": ["CS111" , "CS112"],
         "credit": 3,
         "days": ["Thu"],
         "startTime": "08:00",
@@ -56,7 +56,7 @@
     {
         "courseId": "CS281",
         "courseName": "Object-Oriented Analysis & Design",
-        "prerequisite": ["!CS251"],
+        "prerequisite": ["CS251"],
         "credit": 3,
         "days": ["Wed"],
         "startTime": "09:30",
@@ -335,7 +335,7 @@
     {
         "courseId": "CS459",
         "courseName": "Selected Topics in Information Systems",
-        "prerequisite": ["CS251 OR CS456"],
+        "prerequisite": ["CS251","CS456"],
         "credit": 3,
         "days": ["Wed","Fri"],
         "startTime": "13:30",
@@ -398,7 +398,7 @@
     {
         "courseId": "CS499",
         "courseName": "Selected Topics in Computer Graphics",
-        "prerequisite": ["!CS398"],
+        "prerequisite": ["CS398"],
         "credit": 3,
         "days": ["Wed","Fri"],
         "startTime": "15:00",
