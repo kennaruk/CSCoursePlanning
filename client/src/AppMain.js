@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './css/App.css';
 import { HomeBar } from './components/HomeBar.js';
-import { Body } from './components/Body.js'
+import Body from './components/Body'
 
 // import { Calendar } from './Calendar.js'
 

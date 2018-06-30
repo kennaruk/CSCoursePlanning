@@ -3,14 +3,12 @@ import { DropDownMenu } from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import { TabSearchBy } from './TabSearchBy.js'
 import { FullCalendar } from './FullCalendar.js'
-
+import { connect } from 'react-redux'
 
 export class Body extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 0,
-            semester: 0,
             courses: [],
         };
     }
@@ -18,31 +16,37 @@ export class Body extends React.Component {
     onUpdateCourse = (courseJSON) => {
         this.setState({
             courses: courseJSON
-        }, () => {
-            // console.log('header :',this.state.courses)
-        });
+        })
     }
 
-    handleYearChange = (event, index, value) => this.setState({ value: value });
+    handleYearChange = (event, index, value) => {
+      this.props.handleYearChange(value)
+    }
 
-    handleSemester0 = () => this.setState({ semester: 0 })
+    handleSemester0 = () => {
+      this.props.handleSemester0(0)
+    }
 
-    handleSemester1 = () => this.setState({ semester: 1 })
+    handleSemester1 = () => {
+      this.props.handleSemester1(1)
+    }
 
-    handleSemester2 = () => this.setState({ semester: 2 })
+    handleSemester2 = () => {
+      this.props.handleSemester2(2)
+    }
 
     render() {
         return (
             <div>
                 <div>
-                    <DropDownMenu value={this.state.value} onChange={this.handleYearChange} >
+                    <DropDownMenu value={this.props.value} onChange={this.handleYearChange} >
                         <MenuItem value={0} primaryText="ชั้นปี" />
                         <MenuItem value={1} primaryText="ปี 1" />
                         <MenuItem value={2} primaryText="ปี 2" />
                         <MenuItem value={3} primaryText="ปี 3" />
                         <MenuItem value={4} primaryText="ปี 4" />
                     </DropDownMenu>
-                    <DropDownMenu value={this.state.semester}>
+                    <DropDownMenu value={this.props.semester} >
                         <MenuItem value={0} primaryText="ภาคเรียน" onClick={this.handleSemester0} />
                         <MenuItem value={1} primaryText="ภาคเรียนที่ 1" onClick={this.handleSemester1} />
                         <MenuItem value={2} primaryText="ภาคเรียนที่ 2" onClick={this.handleSemester2} />
@@ -61,3 +65,42 @@ export class Body extends React.Component {
         )
     }
 }
+
+function mapStateToProps(state) {
+  return {
+    value: state.value,
+    semester: state.semester,
+    courses: state.courses,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    handleYearChange: (value) => {
+      dispatch({
+        type: 'HANDLE_YEAR',
+        value,
+      })
+    },
+    handleSemester0: (semester) => {
+      dispatch({
+        type: 'HANDLE_SEMESTER_0',
+        semester,
+      })
+    },
+    handleSemester1: (semester) => {
+      dispatch({
+        type: 'HANDLE_SEMESTER_1',
+        semester,
+      })
+    },
+    handleSemester2: (semester) => {
+      dispatch({
+        type: 'HANDLE_SEMESTER_2',
+        semester,
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Body)

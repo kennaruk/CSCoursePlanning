@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './css/App.css';
 import { Route, Switch } from 'react-router-dom';
-import { Header } from './components/Header.js'
+import Header from './components/Header'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Footer } from './components/Footer.js'
 import AppLogin from './AppLogin';
