@@ -70,6 +70,11 @@ function reducer(state = initialState, action) {
         ...state,
         semester: action.semester
       }
+    case 'FILTER_LIST':
+      return {
+        ...state,
+        items: action.items,
+      }
     default:
       return state
   }

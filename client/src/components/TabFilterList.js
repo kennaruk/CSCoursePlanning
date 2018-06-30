@@ -27,9 +27,7 @@ var arr_merge = arr1.concat(arr2)
 // Filter course
 export class TabFilterList extends React.Component {
   componentWillMount() {
-    this.setState({
-      items: this.state.initialItems
-    })
+    this.props.filterCourse(this.props.initialItems)
   }
 
   constructor(props) {
@@ -41,21 +39,19 @@ export class TabFilterList extends React.Component {
   }
 
   filterList = (event) => {
-    var updatedList = this.state.initialItems;
+    var updatedList = this.props.initialItems;
     updatedList = updatedList.filter(function (item) {
       return item.courseId.toLowerCase().search(
         event.target.value.toLowerCase()) !== -1;
     });
-    this.setState({
-      items: updatedList,
-    });
+    this.props.filterCourse(updatedList)
   }
 
   render() {
     return (
       <div className="filter-list">
         <input type="text" id="input" className="Input-text" placeholder="Search by course id" onChange={this.filterList} />
-        <List items={this.state.items} onUpdateCourse={this.props.onUpdateCourse} />
+        <List items={this.props.items} onUpdateCourse={this.props.onUpdateCourse} />
       </div>
     )
   }
@@ -107,6 +103,7 @@ class List extends React.Component {
 
 
   render() {
+    console.log(this.props.data)
     return (
       <div className='flow'>
         <Table
@@ -155,9 +152,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    a: () => {
+    filterCourse: (items) => {
       dispatch({
-        type: '1'
+        type: 'FILTER_LIST',
+        items,
       })
     }
   }
