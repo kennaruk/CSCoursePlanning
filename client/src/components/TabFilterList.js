@@ -8,6 +8,7 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 import '../css/TabSearch-style.css';
+import { connect } from 'react-redux'
 
 var semester_1 = require('./semester_1.json')
 var semester_2 = require('./semester_2.json')
@@ -65,11 +66,6 @@ class List extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      multiSelectable: true,
-      fixedHeader: true,
-      enableSelectAll: false,
-      deselectOnClickaway: false,
-      showRowHover: true,
       data: arr_merge,
       selectedRows: []
     }
@@ -114,12 +110,10 @@ class List extends React.Component {
     return (
       <div className='flow'>
         <Table
-          multiSelectable={this.state.multiSelectable}
+          multiSelectable={true}
           onRowSelection={this._onRowSelection}
         >
-          <TableHeader
-            enableSelectAll={this.state.enableSelectAll}
-          >
+          <TableHeader enableSelectAll={false}>
             <TableRow>
               <TableHeaderColumn style={{ width: "4rem" }}>รหัสวิชา</TableHeaderColumn>
               <TableHeaderColumn>ชื่อวิชา</TableHeaderColumn>
@@ -128,8 +122,8 @@ class List extends React.Component {
             </TableRow>
           </TableHeader>
           <TableBody
-            deselectOnClickaway={this.state.deselectOnClickaway}
-            showRowHover={this.state.showRowHover}
+            deselectOnClickaway={false}
+            showRowHover={true}
           >
             {
               this.props.items.map((item, i) => {
@@ -139,7 +133,6 @@ class List extends React.Component {
                     <TableRowColumn>{item.courseName}</TableRowColumn>
                     <TableRowColumn >{item.startTime} - {item.endTime}</TableRowColumn>
                     <TableRowColumn >{item.days}</TableRowColumn>
-
                   </TableRow>
                 )
               })
@@ -150,3 +143,24 @@ class List extends React.Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    initialItems: state.initialItems,
+    items: state.items,
+    data: state.data,
+    selectedRows: state.selectedRows,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    a: () => {
+      dispatch({
+        type: '1'
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TabFilterList)

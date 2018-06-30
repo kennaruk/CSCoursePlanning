@@ -9,6 +9,22 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
+var semester_1 = require('./components/semester_1.json')
+var semester_2 = require('./components/semester_2.json')
+
+var arr1 = []
+var arr2 = []
+
+semester_1.map((item, i) => {
+  arr1.push(item)
+})
+
+semester_2.map((item, i) => {
+  arr2.push(item)
+})
+
+var arr_merge = arr1.concat(arr2)
+
 const initialState = {
   // Header.js
   openDrawer: false,
@@ -18,6 +34,13 @@ const initialState = {
   semester: 0,
   courses: [],
 
+  // TabFilterList.js
+  initialItems: arr_merge,
+  items: [],
+
+  // TabFilterList.js => List,
+  data: arr_merge,
+  selectedRows: [],
 }
 
 function reducer(state = initialState, action) {

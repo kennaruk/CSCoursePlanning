@@ -2,42 +2,16 @@ import React from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import RaisedButton from 'material-ui/RaisedButton';
 import { TabCourseList } from './TabCourseList.js'
-import { TabFilterList } from './TabFilterList.js';
-
-const style_btn = {
-    margin: 10,
-    width: '20%'
-}
+import TabFilterList from './TabFilterList';
 
 export class TabSearchBy extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showCourse: 0,
-        }
-    }
-
-    handleShowCs1 = () => this.setState({ showCourse: 1 })
-
-    handleShowCs2 = () => this.setState({ showCourse: 2 })
-
-    handleShowCs3 = () => this.setState({ showCourse: 3 })
-
-    handleShowCs4 = () => this.setState({ showCourse: 4 })
-
-    toggleSearch = () => {
-        this.setState({
-            showCourse: 0
-        })
-    }
 
     render() {
-        const isShowCourseList = this.state.showCourse === 0 ? null : <TabCourseList show={this.state.showCourse} semester={this.props.semester} onUpdateCourse={this.props.onUpdateCourse} />
-
+        // const isShowCourseList = this.state.showCourse === 0 ? null : <TabCourseList show={this.state.showCourse} semester={this.props.semester} onUpdateCourse={this.props.onUpdateCourse} />
         return (
             <div>
                 <Tabs>
-                    <Tab label="Search" value="a" onActive={this.toggleSearch} disabled >
+                    <Tab label="Search" value="a" disabled >
                         <div>
                             <TabFilterList chksemester={this.props.semester} onUpdateCourse={this.props.onUpdateCourse} />
                         </div>
@@ -52,9 +26,6 @@ export class TabSearchBy extends React.Component {
                         </div>
                     </Tab> */}
                 </Tabs>
-
-                {isShowCourseList}
-
             </div>
         );
     }
