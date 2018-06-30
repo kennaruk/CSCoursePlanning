@@ -2,7 +2,6 @@ import React from 'react'
 import AppBar from 'material-ui/AppBar';
 import MenuItem from 'material-ui/MenuItem';
 import Drawer from 'material-ui/Drawer';
-import RaisedButton from 'material-ui/RaisedButton';
 import '../css/calendar-style.css';
 
 import { connect } from 'react-redux'
@@ -26,15 +25,12 @@ export class Header extends React.Component {
                     docked={false}
                     width={200}
                     open={this.props.openDrawer}
-                    onRequestChange={(open) => this.setState({ open })}
+                    onRequestChange={this.handleToggle}
                 >
-                    <MenuItem onClick={this.handleToggle}>Back</MenuItem>
-                    {
-
-                    }
-                    <MenuItem onClick={this.handleToggle}>Profile</MenuItem>
-                    <MenuItem onClick={this.handleToggle}  href="login" >Login</MenuItem>
-                    <MenuItem onClick={this.handleToggle}>Register</MenuItem>
+                    <MenuItem onClick={this.handleToggle} href="/">Home</MenuItem>
+                    <MenuItem onClick={this.handleToggle} href="profile">Profile</MenuItem>
+                    <MenuItem onClick={this.handleToggle} href="login">Login</MenuItem>
+                    <MenuItem onClick={this.handleToggle} href="register">Register</MenuItem>
                 </Drawer>
 
             </div >

@@ -1,12 +1,4 @@
 import React from 'react';
-import {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn,
-} from 'material-ui/Table';
 import '../css/TabSearch-style.css';
 import { connect } from 'react-redux'
 import List from './List'
@@ -30,7 +22,7 @@ export class TabFilterList extends React.Component {
     return (
       <div className="filter-list">
         <input type="text" id="input" className="Input-text" placeholder="Search by course id" onChange={this.filterList} />
-        <List items={this.props.items} onUpdateCourse={this.props.onUpdateCourse} />
+        <List /> 
       </div>
     )
   }

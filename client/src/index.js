@@ -75,6 +75,16 @@ function reducer(state = initialState, action) {
         ...state,
         items: action.items,
       }
+    case 'SELECT_ROWS':
+      return {
+        ...state,
+        selectedRows: action.selectedRows,
+      }
+    case 'UPDATE_COURSE':
+      return {
+        ...state,
+        courses: action.courses,
+      }
     default:
       return state
   }
@@ -85,13 +95,11 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </Provider>, document.getElementById('root')
-
 );
 registerServiceWorker();

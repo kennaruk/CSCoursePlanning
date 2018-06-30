@@ -1,7 +1,5 @@
 import React from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
-import RaisedButton from 'material-ui/RaisedButton';
-import { TabCourseList } from './TabCourseList.js'
 import TabFilterList from './TabFilterList';
 
 export class TabSearchBy extends React.Component {

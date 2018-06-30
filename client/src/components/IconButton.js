@@ -1,19 +1,8 @@
 import React from 'react';
-import IconButton from 'material-ui/IconButton';
-import ActionGrade from 'material-ui/svg-icons/action/grade';
 import RaisedButton from 'material-ui/RaisedButton';
 import ActionAndroid from 'material-ui/svg-icons/action/android';
-import FontIcon from 'material-ui/FontIcon';
-import {fullWhite} from 'material-ui/styles/colors';
 import '../css/login.css';
-
-/**
- * A simple example of `AppBar` with an icon on the right.
- * By default, the left icon is a navigation-menu.
- */
 export class ButtonIcon extends React.Component {
-
-
 
   render() {
     const styles = {

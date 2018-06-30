@@ -9,62 +9,34 @@ import {
 } from 'material-ui/Table';
 import { connect } from 'react-redux'
 
-var semester_1 = require('./semester_1.json')
-var semester_2 = require('./semester_2.json')
-
-var arr1 = []
-var arr2 = []
-semester_1.map((item, i) => {
-  arr1.push(item)
-})
-
-semester_2.map((item, i) => {
-  arr2.push(item)
-})
-var arr_merge = arr1.concat(arr2)
-
 // Show list OR show list after filter
 export class List extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: arr_merge,
-      selectedRows: []
-    }
-  }
 
   _onRowSelection = (key) => {
-    this.setState({
-      selectedRows: key
-    }, () => {
-      let obj = [];
-      let chkPrerequisite = []
-      for (let i = 0; i <= key.length; i++) {
-        if (i === key.length) {
-          this.props.onUpdateCourse(obj)
-          break;
-        }
-
-        // check prerequisite from selected row.
-        if ((this.state.data[key[i]].prerequisite.some(i => chkPrerequisite.indexOf(i) < 0))) {
-          alert('required : ' + this.state.data[key[i]].prerequisite + ' !')
-          this.setState({
-            selectedRows: []
-          })
-        } else {
-          obj.push({
-            selectCourseId: this.state.data[key[i]].courseId,
-            selectStartTime: this.state.data[key[i]].startTime,
-            selectEndTime: this.state.data[key[i]].endTime,
-            selectDays: this.state.data[key[i]].days,
-            selectCredit: this.state.data[key[i]].credit,
-            selectPrerequisite: this.state.data[key[i]].prerequisite
-          });
-        }
-        chkPrerequisite.push(this.state.data[key[i]].courseId)
-        // console.log('i:',i,'obj:',obj)
+    this.props.onRowSelection(key)
+    let obj = [];
+    let chkPrerequisite = []
+    for (let i = 0; i <= key.length; i++) {
+      if (i === key.length) {
+        this.props.onUpdateCourse(obj)
+        break;
       }
-    });
+      // check prerequisite from selected row.
+      if ((this.props.data[key[i]].prerequisite.some(i => chkPrerequisite.indexOf(i) < 0))) {
+        alert('required : ' + this.props.data[key[i]].prerequisite + ' !')
+      } else {
+        obj.push({
+          selectCourseId: this.props.data[key[i]].courseId,
+          selectStartTime: this.props.data[key[i]].startTime,
+          selectEndTime: this.props.data[key[i]].endTime,
+          selectDays: this.props.data[key[i]].days,
+          selectCredit: this.props.data[key[i]].credit,
+          selectPrerequisite: this.props.data[key[i]].prerequisite
+        });
+      }
+      chkPrerequisite.push(this.props.data[key[i]].courseId)
+      // console.log('i:',i,'obj:',obj)
+    }
   }
 
 
@@ -88,13 +60,13 @@ export class List extends React.Component {
             showRowHover={true}
           >
             {
-              this.props.items.map((item, i) => {
+               this.props.items.map((item, i) => {
                 return (
-                  <TableRow key={i} selected={this.state.selectedRows.indexOf(i) !== -1}>
+                  <TableRow key={i} selected={this.props.selectedRows.indexOf(i) !== -1}>
                     <TableRowColumn style={{ width: "4rem" }}>{item.courseId} </TableRowColumn>
                     <TableRowColumn>{item.courseName}</TableRowColumn>
-                    <TableRowColumn >{item.startTime} - {item.endTime}</TableRowColumn>
-                    <TableRowColumn >{item.days}</TableRowColumn>
+                    <TableRowColumn>{item.startTime} - {item.endTime}</TableRowColumn>
+                    <TableRowColumn>{item.days}</TableRowColumn>
                   </TableRow>
                 )
               })
@@ -110,12 +82,24 @@ function mapStateToProps(state) {
   return {
     data: state.data,
     selectedRows: state.selectedRows,
+    items: state.items,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-
+    onRowSelection: (selectedRows) => {
+      dispatch({
+        type: 'SELECT_ROWS',
+        selectedRows,
+      })
+    },
+    onUpdateCourse: (courses) => {
+      dispatch({
+        type: 'UPDATE_COURSE',
+        courses,
+      })
+    }
   }
 }
 

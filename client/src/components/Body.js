@@ -2,22 +2,10 @@ import React from 'react'
 import { DropDownMenu } from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import { TabSearchBy } from './TabSearchBy.js'
-import { FullCalendar } from './FullCalendar.js'
+import FullCalendar from './FullCalendar'
 import { connect } from 'react-redux'
 
 export class Body extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            courses: [],
-        };
-    }
-
-    onUpdateCourse = (courseJSON) => {
-        this.setState({
-            courses: courseJSON
-        })
-    }
 
     handleYearChange = (event, index, value) => {
       this.props.handleYearChange(value)
@@ -55,10 +43,10 @@ export class Body extends React.Component {
 
                 <div style={{ width: "60%", float: "left", margin: "10px" }}>
                     <h1>Time Table</h1>
-                    <FullCalendar courses={this.state.courses} />
+                    <FullCalendar />
                 </div>
                 <div style={{ width: "35%", float: "left", margin: "20px" }}>
-                    <TabSearchBy semester={this.state.semester} onUpdateCourse={this.onUpdateCourse} />
+                    <TabSearchBy />
                     <br />
                 </div>
             </div>
@@ -70,7 +58,6 @@ function mapStateToProps(state) {
   return {
     value: state.value,
     semester: state.semester,
-    courses: state.courses,
   }
 }
 

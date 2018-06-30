@@ -3,18 +3,16 @@ import '../css/calendar-style.css';
 import $ from 'jquery'
 import fullcalendar from 'fullcalendar'
 import moment from 'moment'
-
+import { connect } from 'react-redux'
 
 var dayColor = ''
 
 export class FullCalendar extends React.Component {
     componentDidMount() {
         $('#calendar').fullCalendar({
-            // height: 750,
             contentHeight: 'auto',
             slotLabelFormat: "HH:mm",
             allDaySlot: false,
-            // footer: true,
             columnFormat: 'ddd',
             header: {
                 left: null,
@@ -86,3 +84,11 @@ export class FullCalendar extends React.Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+  return {
+    courses: state.courses,
+  }
+}
+
+export default connect(mapStateToProps)(FullCalendar)
