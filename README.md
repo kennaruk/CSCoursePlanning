@@ -1,14 +1,14 @@
 CSCoursePlanning
 =====
-This is final-project for CS485 Web Application Development (Computer Science Thammasat University) that build by MERN Stack
+This is the final project for CS485 Web Application Development (Computer Science Thammasat University) that was built using the MERN stack.
 
-Project Folder
+Project Structure
 -----
-Folder are split into 2 main parts
+There are 2 main folders:
 
-```--- client //contain React.js```
+```--- client //contains React.js```
 
-```--- server //contain MongoDB Express.js Node.js```
+```--- server //contains MongoDB Express.js Node.js```
 
 Deployment
 -----
